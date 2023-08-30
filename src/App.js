@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Importa Router y Routes
+import ColorSchemesExample from "./Components/NavBar/NavBar";
+import Home from "./Components/Home/Home";
+import ProductContainer from "./Components/Products/ProductContainer";
+import CreateAnAccount from "./Components/Login/SignIn";
+import Login from "./Components/Login/Login";
+import AboutUs from "./Components/AboutUs/AboutUs";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import Footer from "./Components/Footer/Footer";
+import ContactUs from "./Components/ContactUs/ContacUs";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <ColorSchemesExample />
+        <Routes>
+          <Route path="/WineStore" element={<AboutUs />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/products" element={<ProductContainer />} />
+          <Route path="/createAnAccount" element={<CreateAnAccount />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/contactUs" element={<ContactUs />} />
+        </Routes>
+      </ThemeProvider>
+      <Footer />
+    </Router>
   );
 }
 
