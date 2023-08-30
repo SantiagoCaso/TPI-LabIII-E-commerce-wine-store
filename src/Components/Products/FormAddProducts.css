@@ -1,0 +1,7 @@
+.div-form-add-product {
+  display: flex;
+  justify-content: flex-start;
+  height: 100vh;
+  margin: 0% 25%;
+  flex-direction: column;
+}
