@@ -3,15 +3,12 @@ import SelectWineType from "../Selects/SelectWineType";
 import "./FormAddProducts.css";
 
 function FormAddProducts() {
+  const onClickHandler = () => {};
   return (
     <div className="div-form-add-product">
       <Form.Floating className="mb-3">
-        <Form.Control
-          id="floatingInputCustom"
-          type="name"
-          placeholder="Wine name"
-        />
-        <label htmlFor="floatingInputCustom">Enter wine name</label>
+        <Form.Control id="wine" type="name" placeholder="Wine name" />
+        <label htmlFor="wine">Enter wine name</label>
       </Form.Floating>
       <Form.Floating className="mb-3">
         <Form.Control

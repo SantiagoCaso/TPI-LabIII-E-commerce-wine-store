@@ -1,0 +1,14 @@
+#conteiner-404-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#drunk-men {
+  width: 500px;
+  height: 500px;
+}
+
+h1 {
+  font-size: 400px;
+}

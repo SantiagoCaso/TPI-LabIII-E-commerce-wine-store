@@ -11,6 +11,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Footer from "./Components/Footer/Footer";
 import ContactUs from "./Components/ContactUs/ContacUs";
+import PageNotFound from "./Components/404/PageNotFound";
 
 const darkTheme = createTheme({
   palette: {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/createAnAccount" element={<CreateAnAccount />} />
           <Route path="/login" element={<Login />} />
           <Route path="/contactUs" element={<ContactUs />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </ThemeProvider>
       <Footer />
