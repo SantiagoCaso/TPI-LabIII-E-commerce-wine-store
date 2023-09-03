@@ -26,6 +26,7 @@ function App() {
         <CssBaseline />
         <ColorSchemesExample />
         <Routes>
+          <Route path="/" exact element={<AboutUs />} />
           <Route path="/WineStore" element={<AboutUs />} />
           <Route path="/home" element={<Home />} />
           <Route path="/products" element={<ProductContainer />} />

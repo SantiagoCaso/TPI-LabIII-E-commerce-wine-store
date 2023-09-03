@@ -1,7 +1,17 @@
 .div-form-add-product {
   display: flex;
   justify-content: flex-start;
-  height: 100vh;
   margin: 0% 25%;
   flex-direction: column;
+}
+
+#add-button {
+  width: 200px;
+}
+
+#div-add-button {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
