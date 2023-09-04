@@ -5,7 +5,7 @@ import "./Login.css";
 
 function Login() {
   return (
-    <Form>
+    <Form className="div-form-login-container">
       <Form.Group className="mb-3" controlId="formGroupEmail">
         <Form.Label>Name</Form.Label>
         <Form.Control type="name" placeholder="Enter your name" />

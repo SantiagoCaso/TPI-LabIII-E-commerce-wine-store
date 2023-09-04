@@ -1,9 +1,4 @@
-.text-muted2 {
-  color: white;
-  --bs-text-opacity: 1;
-}
-
-.div-form-login-container {
+.div-form-sign-in-container {
   display: flex;
   justify-content: flex-start;
   margin: 0% 25%;
