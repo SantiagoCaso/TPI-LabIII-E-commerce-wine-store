@@ -1,17 +1,18 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-function CardProduct() {
+function CardProduct({ props }) {
+  const { name, winery, vintage, type, url, cost } = props;
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={url} alt={name} />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Card.Title>{name}</Card.Title>
+        <Card.Text>Winery: {winery}</Card.Text>
+        <Card.Text>Vintage: {vintage}</Card.Text>
+        <Card.Text>Wine Type: {type}</Card.Text>
+        <Card.Text>Cost: $ {cost}</Card.Text>
+        <Button variant="primary">Add to cart</Button>
       </Card.Body>
     </Card>
   );
