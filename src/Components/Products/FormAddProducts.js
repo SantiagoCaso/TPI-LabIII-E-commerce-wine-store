@@ -81,6 +81,7 @@ function FormAddProducts() {
             />
             <label htmlFor="cost">Enter Wine Cost</label>
           </Form.Floating>
+           
           <Form.Select
             size="lg"
             aria-label="Default select example"
@@ -100,7 +101,6 @@ function FormAddProducts() {
             <option value="Fruit Wine">Fruit Wine</option>
             <option value="Natural Wine">Natural/Orange Wine</option>
           </Form.Select>
-
           <div id="div-add-button">
             {" "}
             <Button
@@ -113,9 +113,12 @@ function FormAddProducts() {
             </Button>{" "}
           </div>
         </form>
-        {wines.map((props, index) => (
+        <div className="products-container"> 
+          {wines.map((props, index) => (
           <CardProduct key={index} props={props} />
         ))}
+        </div>
+        
       </div>
     </productContext.Provider>
   );

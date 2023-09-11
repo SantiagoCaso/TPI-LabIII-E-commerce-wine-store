@@ -1,39 +1,43 @@
+import "./Footer.css";
 import React from "react";
-import {
-  Box,
-  Container,
-  Row,
-  Column,
-  FooterLink,
-  Heading,
-} from "./FooterStyles";
 
-const Footer = () => {
+function Footer() {
   return (
-    <Box>
-      <Container>
-        <Row>
-          <Column>
-            <Heading>Contact Us</Heading>
-            <FooterLink href="/contactUs">Send us a message</FooterLink>
-            <FooterLink href="#">Uttar Pradesh</FooterLink>
-          </Column>
-          <Column>
-            <Heading>Social Media</Heading>
-            <FooterLink href="#">
-              <i className="fab fa-facebook-f">
-                <span style={{ marginLeft: "10px" }}>Facebook</span>
-              </i>
-            </FooterLink>
-            <FooterLink href="#">
-              <i className="fab fa-facebook-f">
-                <span style={{ marginLeft: "10px" }}>Facebook</span>
-              </i>
-            </FooterLink>
-          </Column>
-        </Row>
-      </Container>
-    </Box>
+    <footer className="footer">
+      <div className="container">
+        <div className="row">
+          <div className="footer-col">
+            <h3 style={{ color: "black"}}> . </h3>
+            <ul>
+              <li style={{ fontSize: "20px"}}>Privacy</li>
+              <li style={{ fontSize: "20px"}}>Accesibility</li>
+              <li style={{ fontSize: "20px"}}>How can we help you?</li>
+            </ul>
+          </div>
+          <div className="footer-col">
+              <h3>Made by: </h3>
+              <ul>
+                <li style={{ fontSize: "20px"}}>Santiago Ignacio Caso</li>
+                <li style={{ fontSize: "20px"}}>Luciano Beltramino</li>
+                <li style={{ fontSize: "20px"}}>Mora Vallejos</li>
+              </ul>
+          </div>
+          <div className="footer-col">
+            <h3 style={{ marginLeft: "36px"}}> Contact us! </h3>
+              <ul>
+              <li style={{ fontSize: "20px"}}>
+              <img src="/images/twitter-logo.png" style={{ marginRight: "5px", width: "25px", height: "25px" }} /> Twitter </li>
+                <li style={{ fontSize: "20px"}}> 
+                <img src="/images/facebook-logo.png" style={{ marginRight: "5px", width: "25px", height: "25px" }} /> Facebook </li>
+                <li style={{ fontSize: "20px"}}> 
+                <img src="/images/instagram-logo.png" style={{ marginRight: "5px", width: "25px", height: "25px" }}  />  Instagram </li>
+
+              </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
-};
+}
+
 export default Footer;
