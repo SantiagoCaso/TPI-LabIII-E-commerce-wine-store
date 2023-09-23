@@ -7,11 +7,21 @@ function CardProduct({ props }) {
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={url} alt={name} />
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>Winery: {winery}</Card.Text>
-        <Card.Text>Vintage: {vintage}</Card.Text>
-        <Card.Text>Wine Type: {type}</Card.Text>
-        <Card.Text>Cost: $ {cost}</Card.Text>
+        <Card.Title>
+          <b>{name}</b>
+        </Card.Title>
+        <Card.Text>
+          <b>Winery:</b> {winery}
+        </Card.Text>
+        <Card.Text>
+          <b>Vintage:</b> {vintage}
+        </Card.Text>
+        <Card.Text>
+          <b>Wine Type:</b> {type}
+        </Card.Text>
+        <Card.Text>
+          <b>Cost: </b> ${cost}
+        </Card.Text>
         <Button variant="primary">Add to cart</Button>
       </Card.Body>
     </Card>

@@ -23,7 +23,7 @@ function CreateAnAccount() {
         <Form.Text className="text-muted">Create a password</Form.Text>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Label>I'm 18 or older</Form.Label>
+        <Form.Label>I'm 21 or older</Form.Label>
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
       <Button variant="primary" type="submit">

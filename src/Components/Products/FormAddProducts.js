@@ -3,8 +3,8 @@ import "./FormAddProducts.css";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import productContext from "../Items-Container/productContext";
-import ItemsContainer from "../Items-Container/ItemsContainer";
 import CardProduct from "./Products";
+import ProductFilter from "../Selects/ProductFilter";
 
 function FormAddProducts() {
   const [wines, setWines] = useState([]);
@@ -32,6 +32,16 @@ function FormAddProducts() {
   const addWine = () => {
     setWines([...wines, newProduct]);
   };
+
+  //Esto debería estar en Products.js
+  function getWineType(wines) {
+    const types = wines.map((type) => type.type);
+    let uniqueTypes = types.filter(
+      (type, index) => types.indexOf(type) === index
+    );
+    // uniqueYears.sort
+    return uniqueTypes;
+  }
 
   return (
     <productContext.Provider value={wines}>
@@ -117,6 +127,10 @@ function FormAddProducts() {
           <CardProduct key={index} props={props} />
         ))}
       </div>
+      <ProductFilter
+        onSelectWine={handleInputChange}
+        types={getWineType(wines)}
+      />
     </productContext.Provider>
   );
 }
