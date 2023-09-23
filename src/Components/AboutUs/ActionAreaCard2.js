@@ -19,21 +19,20 @@ function ActionAreaCard2() {
           alt="green iguana"
         />
         <img src={Bodega} className="img-carousel"></img>
-        <CardContent>
+        <CardContent style={{ marginBottom: "30px"}}>
           <Typography gutterBottom variant="h5" component="div">
-            Barricas de roble
+          Oak barrels.
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Los vinos se almacenan en lugares especialmente diseñados para
-            preservar y mejorar sus cualidades con el tiempo. Las bodegas son el
-            corazón de este proceso, ya que ofrecen un entorno controlado de
-            temperatura, humedad y oscuridad. Tanto las bodegas subterráneas
-            como las modernas salas de almacenamiento están destinadas a
-            proteger los vinos de las fluctuaciones climáticas y la luz solar.
-            El envejecimiento en barricas de roble en estas bodegas añade
-            profundidad y complejidad a los vinos, permitiendo que desarrollen
-            sus sabores y aromas distintivos antes de estar listos para ser
-            disfrutados por los amantes del vino.
+            Wines are stored in places specially designed for conserve and
+            improve its quaility over time. The wineries are the heart of 
+            this process, as they offer a controlled environment of temperature,
+            humidity and darkness. Both, the underground cellars as moderns storage
+            rooms, are intended to protect wines from weather fluctuactions and
+            sunlight. 
+            Aging in oak barrels in the wineries, adds depth and complexity
+            to the wines, allowing them to develop their distinctive flavors and scent
+            before they are ready to be enjoyed by wine lovers.
           </Typography>
         </CardContent>
       </CardActionArea>

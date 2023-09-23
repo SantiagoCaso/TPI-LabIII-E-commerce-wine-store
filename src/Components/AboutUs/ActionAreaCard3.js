@@ -19,18 +19,17 @@ function ActionAreaCard3() {
           alt="green iguana"
         />
         <img src={Vinos} alt="Vinos" className="img-carousel"></img>
-        <CardContent>
+        <CardContent style={{ marginBottom: "30px"}}>
           <Typography gutterBottom variant="h5" component="div">
-            Los amantes del vino
+            Wine lovers.
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            La distribución del vino es un proceso esencial que conecta la
-            producción de las bodegas con los amantes del vino en todo el mundo.
-            Aseguranos que los vinos lleguen a los clientes de manera eficiente
-            y en las mejores condiciones posibles es nuestra prioridad. Este
-            proceso juega un papel crucial en la promoción y disponibilidad de
-            una amplia gama de vinos, desde los tintos profundos hasta los
-            refrescantes blancos y los elegantes espumosos.
+            The distribution of wine is an essential process that connects
+            the production with wine lovers around the world. 
+            One of our priority is to ensure that wines reach customers efficiently and in the best
+            possible conditions. This process plays a crucial role in the promotion
+            and availability of a wide range of wines, from deep reds to 
+            refreshing whites and elegant sparkling wines.
           </Typography>
         </CardContent>
       </CardActionArea>

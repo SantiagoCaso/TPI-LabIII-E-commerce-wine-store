@@ -18,21 +18,18 @@ function ActionAreaCard() {
           alt="green iguana"
         />
         <img src={Vinedos} alt="Vinedos"></img>
-        <CardContent>
+        <CardContent style={{ marginBottom: "30px"}}>
           <Typography gutterBottom variant="h5" component="div">
-            Un tributo al arte de la paciencia
+            A tribute to the art of patience.
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Los viñedos, lugares donde la naturaleza y la tradición se
-            entrelazan en una danza armoniosa, son el hogar de una de las artes
-            más antiguas y respetadas: la viticultura. Estas extensiones de
-            tierra cultivada se dedican al cultivo de la vid, una planta que da
-            vida a una amplia variedad de uvas, y a su vez, a la producción de
-            uno de los elixires más emblemáticos de la humanidad: el vino. Desde
-            las colinas ondulantes de la Toscana hasta las vastas llanuras de la
-            región de Mendoza en Argentina, los viñedos no solo son un
-            testimonio de la conexión entre el ser humano y la tierra, sino
-            también un tributo al arte de la paciencia y el cuidado meticuloso.
+          <Typography variant="body2" color="text.secondary" >
+            Vineyards. The home to one of the oldest and most respected arts: the vilticulture. 
+            These lands are dedicated to the cultivation of vine: a plant that gives life to a
+            wide variety of grapes and, in the same way, to the production of one of humanity's 
+            most emblematic elixirs: wine.
+            From the hills of Tuscana to the vast plains of Mendoza (Argentina), vineyards
+            are not only a testimony of the connection between a man and the land, but also 
+            a tribute to the art of patiencie and care.             
           </Typography>
         </CardContent>
       </CardActionArea>

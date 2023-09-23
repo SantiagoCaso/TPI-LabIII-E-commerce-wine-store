@@ -3,9 +3,9 @@ import ProductContainer from "../Products/ProductContainer";
 
 const Home = () => {
   return (
-    <div>
+    <div style={{ marginBottom: "800px"}}>
       <h1>We are wine</h1>
-    </div>
+    </div >
   );
 };
 

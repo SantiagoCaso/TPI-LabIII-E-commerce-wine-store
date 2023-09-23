@@ -7,7 +7,7 @@ function Footer() {
       <div className="container">
         <div className="row">
           <div className="footer-col">
-            <h3 style={{ color: "black"}}> . </h3>
+            <h3 style={{ color: "black"}}> ㅤ </h3>
             <ul>
               <li style={{ fontSize: "20px"}}>Privacy</li>
               <li style={{ fontSize: "20px"}}>Accesibility</li>
@@ -15,7 +15,7 @@ function Footer() {
             </ul>
           </div>
           <div className="footer-col">
-              <h3>Made by: </h3>
+              <h3>Made in Argentina </h3>
               <ul>
                 <li style={{ fontSize: "20px"}}>Santiago Ignacio Caso</li>
                 <li style={{ fontSize: "20px"}}>Luciano Beltramino</li>
