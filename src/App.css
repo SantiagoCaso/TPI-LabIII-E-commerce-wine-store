@@ -1,4 +1,10 @@
 .App {
   text-align: center;
   background-color: #1b263b;
+  /* background-color: #121212 */
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }

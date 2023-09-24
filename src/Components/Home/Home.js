@@ -1,10 +1,11 @@
 import React from "react";
 import ProductContainer from "../Products/ProductContainer";
+import "./Home.css";
 
-const Home = () => {
+const Home = ({ theme }) => {
   return (
-    <div>
-      <h1>We are wine</h1>
+    <div className={theme}>
+      <h1>We are wine {theme}</h1>
     </div>
   );
 };

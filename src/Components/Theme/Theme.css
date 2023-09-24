@@ -1,0 +1,14 @@
+:root {
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #000000;
+  --color-bg-primary: #121212;
+  --color-bg-secondary: #edafb8;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background 0.25s ease-in-out;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}

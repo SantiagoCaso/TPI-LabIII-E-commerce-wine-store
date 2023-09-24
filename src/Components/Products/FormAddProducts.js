@@ -5,6 +5,7 @@ import { useState } from "react";
 import productContext from "../Items-Container/productContext";
 import CardProduct from "./Products";
 import ProductFilter from "../Selects/ProductFilter";
+import ProductsList from "./ProductsList";
 
 function FormAddProducts() {
   const [wines, setWines] = useState([]);
@@ -123,14 +124,13 @@ function FormAddProducts() {
             </Button>{" "}
           </div>
         </form>
-        {wines.map((props, index) => (
-          <CardProduct key={index} props={props} />
-        ))}
+        {/*Esto debería ir en ProductContainer*/}
+        <ProductFilter
+          onSelectWine={handleInputChange}
+          types={getWineType(wines)}
+        />
+        <ProductsList wines={wines} /> {/*Esto debería ir en ProductContainer*/}
       </div>
-      <ProductFilter
-        onSelectWine={handleInputChange}
-        types={getWineType(wines)}
-      />
     </productContext.Provider>
   );
 }

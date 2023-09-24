@@ -9,14 +9,17 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import { BiLogIn } from "react-icons/bi";
 import { PiWineFill } from "react-icons/pi";
 import "./NavBar.css";
+import { useContext } from "react";
+import ThemeContext from "../Theme/useContext";
 
 function ColorSchemesExample() {
+  const theme = useContext(ThemeContext);
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="/WineStore">
-            WineStore <PiWineFill />
+            WineStore <PiWineFill color="" />
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/home">
