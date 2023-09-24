@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Importa Router y Routes
 import ColorSchemesExample from "./Components/NavBar/NavBar";
 import Home from "./Components/Home/Home";

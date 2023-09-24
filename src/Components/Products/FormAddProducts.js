@@ -92,6 +92,7 @@ function FormAddProducts() {
             />
             <label htmlFor="cost">Enter Wine Cost</label>
           </Form.Floating>
+
           <Form.Select
             size="lg"
             aria-label="Default select example"
@@ -111,7 +112,6 @@ function FormAddProducts() {
             <option value="Fruit Wine">Fruit Wine</option>
             <option value="Natural Wine">Natural/Orange Wine</option>
           </Form.Select>
-
           <div id="div-add-button">
             {" "}
             <Button
@@ -129,7 +129,10 @@ function FormAddProducts() {
           onSelectWine={handleInputChange}
           types={getWineType(wines)}
         />
-        <ProductsList wines={wines} /> {/*Esto debería ir en ProductContainer*/}
+        <div className="products-container">
+          <ProductsList wines={wines} />{" "}
+          {/*Esto debería ir en ProductContainer*/}
+        </div>
       </div>
     </productContext.Provider>
   );

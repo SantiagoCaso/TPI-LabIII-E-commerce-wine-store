@@ -9,3 +9,7 @@
   margin: 0% 25%;
   flex-direction: column;
 }
+
+.form-label {
+  margin-top: 10px;
+}
