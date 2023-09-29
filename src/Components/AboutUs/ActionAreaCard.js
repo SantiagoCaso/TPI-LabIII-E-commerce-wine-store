@@ -18,18 +18,19 @@ function ActionAreaCard() {
           alt="green iguana"
         />
         <img src={Vinedos} alt="Vinedos"></img>
-        <CardContent style={{ marginBottom: "30px"}}>
+        <CardContent style={{ marginBottom: "30px" }}>
           <Typography gutterBottom variant="h5" component="div">
-            A tribute to the art of patience.
+            A tribute to the art of patience
           </Typography>
-          <Typography variant="body2" color="text.secondary" >
-            Vineyards. The home to one of the oldest and most respected arts: the vilticulture. 
-            These lands are dedicated to the cultivation of vine: a plant that gives life to a
-            wide variety of grapes and, in the same way, to the production of one of humanity's 
-            most emblematic elixirs: wine.
-            From the hills of Tuscana to the vast plains of Mendoza (Argentina), vineyards
-            are not only a testimony of the connection between a man and the land, but also 
-            a tribute to the art of patiencie and care.             
+          <Typography variant="body2" color="text.secondary">
+            Vineyards. The home to one of the oldest and most respected arts:
+            the vilticulture. These lands are dedicated to the cultivation of
+            vine: a plant that gives life to a wide variety of grapes and, in
+            the same way, to the production of one of humanity's most emblematic
+            elixirs: wine. From the hills of Tuscana to the vast plains of
+            Mendoza (Argentina), vineyards are not only a testimony of the
+            connection between a man and the land, but also a tribute to the art
+            of patiencie and care.
           </Typography>
         </CardContent>
       </CardActionArea>

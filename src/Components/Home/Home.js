@@ -1,5 +1,4 @@
 import React from "react";
-import ProductContainer from "../Products/ProductContainer";
 import "./Home.css";
 
 const Home = ({ theme }) => {
