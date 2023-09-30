@@ -10,11 +10,19 @@ import {
 } from "firebase/auth";
 import { useState, useRef, useEffect } from "react";
 import { firebaseConfig } from "../Firebase/Firebase";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function Login() {
   const [userType, setUserType] = useState(""); // Para definir que tipo de usuario ingresó
   const inputRef = useRef(null); // Para que al caragar el componente haga foco sobre el primer input
   const navigate = useNavigate(); // Para que cambie de componente si el usuario ingreso con exito
+  const [showPassword, setShowPassword] = useState(false);
+
+  //Cambiar de visible a no visible el input de password
+
+  const changeShowPasswordHandler = () => {
+    setShowPassword(!showPassword);
+  };
 
   // Logiarse o crear cuenta con google
   async function loginGoogle() {
@@ -48,14 +56,20 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const respuesta = await signInWithEmailAndPassword(auth, email, password);
+      const userCredencial = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       // El inicio de sesión fue exitoso, puedes redirigir al usuario a otra página
-      console.log("Inicio de sesion EXITOSO usuario: " + respuesta);
+      const user = userCredencial.user;
+      console.log("Inicio de sesion EXITOSO usuario: " + user.uid);
       navigate("/products");
     } catch (error) {
-      console.error("Error al iniciar sesión", error);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Error al iniciar sesión", error, errorCode, errorMessage);
     }
   };
 
@@ -65,7 +79,7 @@ function Login() {
   }, []);
 
   return (
-    <Form className="div-form-login-container" onSubmit={handleSubmit}>
+    <Form className="div-form-login-container">
       <Form.Group className="mb-3" controlId="formGroupEmail">
         <Form.Label className="form-label">Email</Form.Label>
         <Form.Control
@@ -78,28 +92,38 @@ function Login() {
       </Form.Group>
       <Form.Group className="mb-3" controlId="formGroupPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="form-control-password">
+          <Form.Control
+            type={showPassword ? "text" : "password"}
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button onClick={changeShowPasswordHandler} id="show-password-button">
+            {showPassword ? (
+              <AiFillEyeInvisible className="show-password-icon" />
+            ) : (
+              <AiFillEye className="show-password-icon" />
+            )}
+          </Button>
+        </div>
       </Form.Group>
-      <Button variant="primary">Login</Button>{" "}
+      <Button onClick={handleSubmit} variant="primary">
+        Login
+      </Button>
       <Form.Text
         className="text-muted2"
         style={{ marginBottom: "500px", color: "gray" }}
       >
         Don't you have an account?
         <Link as={Link} to="/createAnAccount" style={{ color: "white" }}>
-          {" "}
           Create one!
         </Link>
       </Form.Text>
       <h3 style={{ color: "black" }}>{userType}</h3>
       <Button onClick={loginGoogle} variant="primary">
         Login with Google
-      </Button>{" "}
+      </Button>
     </Form>
   );
 }

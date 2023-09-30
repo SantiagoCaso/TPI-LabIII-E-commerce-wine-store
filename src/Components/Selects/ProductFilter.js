@@ -27,9 +27,6 @@ function ProductFilter({ onSelectWine, types }) {
           </option>
         ))}
       </Form.Select>
-      <div className="products-container">
-        <ProductsList wines={wines} /> {/*Esto debería ir en ProductContainer*/}
-      </div>
     </div>
   );
 }

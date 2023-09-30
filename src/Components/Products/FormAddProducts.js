@@ -43,7 +43,6 @@ function FormAddProducts() {
     let uniqueTypes = types.filter(
       (type, index) => types.indexOf(type) === index
     );
-    // uniqueYears.sort
     return uniqueTypes;
   }
 
