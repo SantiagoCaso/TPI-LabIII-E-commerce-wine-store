@@ -4,3 +4,19 @@
   margin: 0% 25%;
   flex-direction: column;
 }
+
+.form-control-password {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  gap: 10px;
+}
+
+.show-password-icon {
+  size: 20px;
+  width: 25px;
+  height: 25px;
+}
+
+#show-password-button {
+  padding: 0px;
+}

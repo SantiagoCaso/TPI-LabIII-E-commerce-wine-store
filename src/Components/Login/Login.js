@@ -5,6 +5,7 @@ import "./Login.css";
 import { auth } from "../Firebase/Firebase";
 import {
   GoogleAuthProvider,
+  getAuth,
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
@@ -19,7 +20,6 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   //Cambiar de visible a no visible el input de password
-
   const changeShowPasswordHandler = () => {
     setShowPassword(!showPassword);
   };
@@ -55,22 +55,27 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const userCredencial = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      // El inicio de sesión fue exitoso, puedes redirigir al usuario a otra página
-      const user = userCredencial.user;
-      console.log("Inicio de sesion EXITOSO usuario: " + user.uid);
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+      const user = userCredential.user;
+      console.log("Usuario logiado con EXITO " + user.email);
+      if (
+        user.email === "cubo3x3.cubo2x2@gmail.com" ||
+        user.email === "moravallejos03@gmail.com"
+      ) {
+        setUserType("Admin");
+        console.log("Welcome Admin");
+      } else {
+        setUserType("User");
+        console.log("Welcome User");
+      }
       navigate("/products");
-    } catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error("Error al iniciar sesión", error, errorCode, errorMessage);
-    }
+    });
+    // } catch (error) {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     console.error("Error al iniciar sesión", error, errorCode, errorMessage);
+    //   }
   };
 
   // Para que al caragar el componente haga foco sobre el primer input

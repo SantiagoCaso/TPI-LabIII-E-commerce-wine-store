@@ -4,6 +4,7 @@ import "./SignIn.css";
 import { useState } from "react";
 import { auth, firebaseConfig } from "../Firebase/Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function CreateAnAccount() {
   //Login Manual
@@ -11,6 +12,12 @@ function CreateAnAccount() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  //Cambiar de visible a no visible el input de password
+  const changeShowPasswordHandler = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,12 +57,21 @@ function CreateAnAccount() {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Enter password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="form-control-password">
+          <Form.Control
+            type={showPassword ? "text" : "password"}
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button onClick={changeShowPasswordHandler} id="show-password-button">
+            {showPassword ? (
+              <AiFillEyeInvisible className="show-password-icon" />
+            ) : (
+              <AiFillEye className="show-password-icon" />
+            )}
+          </Button>
+        </div>
         <p style={{ color: "gray" }}> Create a password. </p>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
