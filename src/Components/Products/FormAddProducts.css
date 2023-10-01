@@ -2,8 +2,8 @@
   margin-top: 15px;
   margin-bottom: 15px;
   display: flex;
-  flex-wrap: wrap; 
-  gap: 20px; 
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .border-prodcut {
@@ -30,4 +30,8 @@
 
 .add-wine {
   margin-bottom: 15px;
+}
+.form-control {
+  background-color: #3cbc8d;
+  color: white;
 }

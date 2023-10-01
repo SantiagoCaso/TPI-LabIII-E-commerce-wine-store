@@ -8,23 +8,23 @@ function Footer() {
         <div className="row">
           <div className="footer-col">
             <h3 style={{ color: "black" }}> ㅤ </h3>
-            <ul>
-              <li style={{ fontSize: "20px" }}>Privacy</li>
-              <li style={{ fontSize: "20px" }}>Accesibility</li>
-              <li style={{ fontSize: "20px" }}>How can we help you?</li>
+            <ul className="ul">
+              <li>Privacy</li>
+              <li>Accesibility</li>
+              <li>How can we help you?</li>
             </ul>
           </div>
           <div className="footer-col">
             <h3>Made in Argentina </h3>
-            <ul>
-              <li style={{ fontSize: "20px" }}>Santiago Ignacio Caso</li>
-              <li style={{ fontSize: "20px" }}>Luciano Beltramino</li>
-              <li style={{ fontSize: "20px" }}>Mora Vallejos</li>
+            <ul className="ul">
+              <li>Santiago Ignacio Caso</li>
+              <li>Luciano Beltramino</li>
+              <li>Mora Vallejos</li>
             </ul>
           </div>
           <div className="footer-col">
             <h3 style={{ marginLeft: "36px" }}> Contact us! </h3>
-            <ul>
+            <ul className="ul">
               <li style={{ fontSize: "20px" }}>
                 <img
                   src="/images/twitter-logo.png"

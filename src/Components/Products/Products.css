@@ -1,11 +1,22 @@
 .card-text {
-    color: black;
+  color: black;
 }
 
 .animated-button {
-    margin-left: 150px;
-    width: 100px;
-    height: 40px;
-    white-space: nowrap;
-    font-size: 10px;
+  margin-left: 150px;
+  width: 100px;
+  height: 40px;
+  white-space: nowrap;
+  font-size: 10px;
+}
+
+.card-img {
+  border: 5px solid black;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.card {
+  width: 18rem;
+  border: 6px solid black;
+  border-radius: 5px;
 }

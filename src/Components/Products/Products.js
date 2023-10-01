@@ -7,19 +7,8 @@ function CardProduct({ props }) {
   const { name, winery, vintage, type, url, cost } = props;
   return (
     <div>
-      <Card
-        style={{
-          width: "18rem",
-          border: "6px solid black",
-          borderRadius: "5px",
-        }}
-      >
-        <Card.Img
-          variant="top"
-          src={url}
-          alt={name}
-          style={{ borderBottom: "1px solid black" }}
-        />
+      <Card className="card">
+        <Card.Img className="card-img" variant="top" src={url} alt={name} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text className="card-text">
@@ -35,9 +24,7 @@ function CardProduct({ props }) {
           <Card.Text className="card-text">
             <b>Cost:</b> ${cost}
           </Card.Text>
-          <Button className="animated-button">
-            Add to cart
-          </Button>
+          <Button className="animated-button">Add to cart</Button>
         </Card.Body>
       </Card>
     </div>
