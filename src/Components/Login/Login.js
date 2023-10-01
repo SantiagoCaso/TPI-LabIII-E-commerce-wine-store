@@ -6,7 +6,7 @@ import { auth } from "../Firebase/Firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 
-function Login() {
+function Login({theme}) {
   const [userType, setUserType] = useState();
 
   async function loginGoogle() {
@@ -32,6 +32,7 @@ function Login() {
   }
 
   return (
+    <div className={theme}>
     <Form className="div-form-login-container">
       <Form.Group className="mb-3" controlId="formGroupEmail">
         <Form.Label className="form-label">Name</Form.Label>
@@ -43,9 +44,7 @@ function Login() {
       </Form.Group>
       <Button variant="primary">Login</Button>{" "}
       <Form.Text
-        className="text-muted2"
-        style={{ marginBottom: "500px", color: "gray" }}
-      >
+        className="text-muted2">
         Don't you have an account?
         <Link as={Link} to="/createAnAccount" style={{ color: "white" }}>
           {" "}
@@ -56,6 +55,7 @@ function Login() {
         Login with Google
       </Button>{" "}
     </Form>
+    </div>
   );
 }
 

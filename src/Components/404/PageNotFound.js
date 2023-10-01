@@ -2,9 +2,9 @@ import React from "react";
 import DrunkMen from "./drunk-icon-19.jpg";
 import "./PageNotFound.css";
 
-function PageNotFound() {
+function PageNotFound({theme}) {
   return (
-    <div>
+    <div className={theme}>
       <h1>404</h1>
       <h2>You drank too much wine</h2>
       <p>Pepito test passed</p>

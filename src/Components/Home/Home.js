@@ -5,7 +5,7 @@ import "./Home.css";
 const Home = ({ theme }) => {
   return (
     <div className={theme}>
-      <h1>We are wine {theme}</h1>
+      <h1> We are wine {theme}</h1>
     </div>
   );
 };

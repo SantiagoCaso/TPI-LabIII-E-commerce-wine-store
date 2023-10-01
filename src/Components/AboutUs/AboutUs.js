@@ -25,10 +25,12 @@ function UncontrolledExample() {
   );
 }
 
-function AboutUs() {
+function AboutUs({theme}) {
   return (
+    <div className={theme}> 
     <div className="div-container-card">
       <UncontrolledExample />
+    </div>
     </div>
   );
 }

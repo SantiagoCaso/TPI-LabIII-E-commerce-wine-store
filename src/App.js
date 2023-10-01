@@ -30,15 +30,16 @@ function App() {
         <ColorSchemesExample />
         <Routes>
           <Route path="/" exact element={<AboutUs />} />
-          <Route path="/WineStore" element={<AboutUs />} />
+          <Route path="/WineStore" element={<AboutUs theme={theme}/>} />
           <Route path="/home" element={<Home theme={theme} />} />
-          <Route path="/products" element={<ProductContainer />} />
-          <Route path="/createAnAccount" element={<CreateAnAccount />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/contactUs" element={<ContactUs />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route path="/products" element={<ProductContainer theme={theme}/>} />
+          <Route path="/createAnAccount" element={<CreateAnAccount theme={theme} />} />
+          <Route path="/login" element={<Login theme={theme}/>} />
+          <Route path="/contactUs" element={<ContactUs theme={theme} />} />
+          <Route path="*" element={<PageNotFound theme={theme}/>} />
         </Routes>
       </ThemeContext.Provider>
+      <Footer/>
     </Router>
   );
 }

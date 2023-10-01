@@ -5,9 +5,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Vinedos from "./Vinedos.jpg";
+import "./ActionCard.css";
 
-function ActionAreaCard() {
+function ActionAreaCard({theme}) {
   return (
+    <div className={theme}>
     <Card sx={{ maxWidth: 700 }}>
       <CardActionArea>
         <CardMedia
@@ -18,7 +20,7 @@ function ActionAreaCard() {
           alt="green iguana"
         />
         <img src={Vinedos} alt="Vinedos"></img>
-        <CardContent style={{ marginBottom: "30px"}}>
+        <CardContent className="CardContent">
           <Typography gutterBottom variant="h5" component="div">
             A tribute to the art of patience.
           </Typography>
@@ -34,6 +36,7 @@ function ActionAreaCard() {
         </CardContent>
       </CardActionArea>
     </Card>
+    </div>
   );
 }
 

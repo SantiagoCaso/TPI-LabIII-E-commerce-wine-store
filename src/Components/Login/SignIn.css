@@ -4,3 +4,15 @@
   margin: 0% 25%;
   flex-direction: column;
 }
+
+.p {
+  color: white;
+}
+
+.form-label {
+  margin-top: 10px;
+}
+
+.button-account {
+  margin-bottom: 250px;
+}

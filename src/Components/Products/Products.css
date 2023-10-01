@@ -1,0 +1,11 @@
+.card-text {
+    color: black;
+}
+
+.animated-button {
+    margin-left: 150px;
+    width: 100px;
+    height: 40px;
+    white-space: nowrap;
+    font-size: 10px;
+}

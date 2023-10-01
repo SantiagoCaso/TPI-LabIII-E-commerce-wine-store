@@ -22,20 +22,20 @@ function CardProduct({ props }) {
         />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
-          <Card.Text style={{ color: "black" }}>
+          <Card.Text className="card-text">
             <b>Winery: </b> {winery}
           </Card.Text>
-          <Card.Text style={{ color: "black" }}>
+          <Card.Text className="card-text">
             <b> Vintage: </b> {vintage}
           </Card.Text>
-          <Card.Text style={{ color: "black" }}>
+          <Card.Text className="card-text">
             <b> Wine Type: </b>
             {type}
           </Card.Text>
-          <Card.Text style={{ color: "black" }}>
+          <Card.Text className="card-text">
             <b>Cost:</b> ${cost}
           </Card.Text>
-          <Button style={{ marginLeft: "150px" }} className="animated-button">
+          <Button className="animated-button">
             Add to cart
           </Button>
         </Card.Body>

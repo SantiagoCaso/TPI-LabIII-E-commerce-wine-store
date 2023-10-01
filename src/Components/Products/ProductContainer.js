@@ -16,9 +16,9 @@ import "./FormAddProducts.css";
 //   );
 // }
 
-function ProductContainer() {
+function ProductContainer({theme}) {
   return (
-    <div>
+    <div className={theme}>
       {/*Acá debería estar FormAddProducts, ProductsList y ProductFilter*/}
       {/*Para eso tenemos que pasar variables importantes como wines mediante useContext*/}
       {/*¿Cuales son las variables que necesitamos pasar mediante useContext?*/}

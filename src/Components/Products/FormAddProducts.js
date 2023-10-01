@@ -114,7 +114,8 @@ function FormAddProducts() {
           </Form.Select>
           <div id="div-add-button">
             {" "}
-            <Button
+            <Button 
+              className="add-wine"
               onClick={addWine}
               type="submit"
               variant="info"
