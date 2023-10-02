@@ -7,9 +7,10 @@ import { doc, getDoc, getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 export const firebaseConfig = {
   apiKey: "AIzaSyCp8ZFp7sHnpZ8y8kwTGSRBdCioMXC37Nw",
-  authDomain: "winestore.firebaseapp.com",
-  projectId: "winestore",
-  storageBucket: "winestore.appspot.com",
+  authDomain: "login-de-usuario-winestore.firebaseapp.com",
+  databaseURL: "https://login-de-usuario-winestore-default-rtdb.firebaseio.com",
+  projectId: "login-de-usuario-winestore",
+  storageBucket: "login-de-usuario-winestore.appspot.com",
   messagingSenderId: "228339243771",
   appId: "1:228339243771:web:88cb6e47f72dc13956ae5e",
 };

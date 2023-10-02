@@ -1,18 +1,17 @@
 import "./App.css";
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Importa Router y Routes
 import ColorSchemesExample from "./Components/NavBar/NavBar";
 import Home from "./Components/Home/Home";
 import ProductContainer from "./Components/Products/ProductContainer";
 import CreateAnAccount from "./Components/Login/SignIn";
-import Login from "./Components/Login/Login";
 import AboutUs from "./Components/AboutUs/AboutUs";
 import CssBaseline from "@mui/material/CssBaseline";
-import Footer from "./Components/Footer/Footer";
 import ContactUs from "./Components/ContactUs/ContacUs";
 import PageNotFound from "./Components/404/PageNotFound";
 import ThemeContext from "./Components/Theme/useContext";
 import { UserContextProvider } from "./Components/Login/userContext";
+import Login from "./Components/Login/Login";
 
 function App() {
   const [theme, setTheme] = useState("dark");

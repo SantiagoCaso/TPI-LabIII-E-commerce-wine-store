@@ -2,25 +2,34 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./SignIn.css";
 import { useState } from "react";
-import { auth, firebaseConfig } from "../Firebase/Firebase";
+import { auth } from "../Firebase/Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 function CreateAnAccount() {
-  //Login Manual
-
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  //Cambiar de visible a no visible el input de password
+
+  const changeShowPasswordHandler = () => {
+    setShowPassword(!showPassword);
+  };
+
+  // Crear usuario nuevo y registrarlo en Authentication de Firebase
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      await createUserWithEmailAndPassword(auth, email, password, name);
-      // El inicio de sesión fue exitoso, puedes redirigir al usuario a otra página
-    } catch (error) {
-      console.error("Error al iniciar sesión", error);
-    }
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("Usuario creado con éxito:", user);
+      })
+      .catch((error) => {
+        // Ocurrió un error al crear la cuenta, puedes manejar el error aquí
+        console.error("Error al crear la cuenta:", error);
+      });
   };
 
   return (
@@ -34,8 +43,7 @@ function CreateAnAccount() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <p style={{ color: "gray" }}>
-          {" "}
-          We'll never share your email with anyone else.{" "}
+          We'll never share your email with anyone else.
         </p>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -50,12 +58,21 @@ function CreateAnAccount() {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Enter password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="form-control-password">
+          <Form.Control
+            type={showPassword ? "text" : "password"}
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button onClick={changeShowPasswordHandler} id="show-password-button">
+            {showPassword ? (
+              <AiFillEyeInvisible className="show-password-icon" />
+            ) : (
+              <AiFillEye className="show-password-icon" />
+            )}
+          </Button>
+        </div>
         <p style={{ color: "gray" }}> Create a password. </p>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
