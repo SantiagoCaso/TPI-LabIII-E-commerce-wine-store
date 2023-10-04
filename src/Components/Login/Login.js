@@ -18,6 +18,8 @@ function Login() {
   const inputRef = useRef(null); // Para que al caragar el componente haga foco sobre el primer input
   const navigate = useNavigate(); // Para que cambie de componente si el usuario ingreso con exito
   const [showPassword, setShowPassword] = useState(false);
+  const [logedUser, setLogedUser] = useState(null);
+  let userId;
 
   //Cambiar de visible a no visible el input de password
   const changeShowPasswordHandler = () => {
@@ -39,9 +41,17 @@ function Login() {
       ) {
         setUserType("Admin");
         console.log("Welcome Admin");
+        localStorage.setItem("loggedUser", JSON.stringify(respuesta.user.uid));
+        console.log(
+          "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
+        );
       } else {
         setUserType("User");
         console.log("Welcome User");
+        localStorage.setItem("loggedUser", JSON.stringify(respuesta.user.uid));
+        console.log(
+          "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
+        );
       }
       navigate("/products");
     } catch (error) {
@@ -65,9 +75,17 @@ function Login() {
       ) {
         setUserType("Admin");
         console.log("Welcome Admin");
+        localStorage.setItem("loggedUser", JSON.stringify(user.uid));
+        console.log(
+          "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
+        );
       } else {
         setUserType("User");
         console.log("Welcome User");
+        localStorage.setItem("loggedUser", JSON.stringify(user.uid));
+        console.log(
+          "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
+        );
       }
       navigate("/products");
     });
