@@ -10,6 +10,7 @@ import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { PiWineFill } from "react-icons/pi";
 import "./NavBar.css";
 import { useEffect, useState } from "react";
+import ButtonToggleTheme from "../Theme/ButtonToggleTheme";
 
 const Logout = () => {
   localStorage.removeItem("loggedUser");
@@ -18,30 +19,33 @@ const Logout = () => {
   );
 };
 
-function DropdownHandler() {
-  const [userLogged, setUserLogged] = useState(null);
+// Intento para que el DropdownButton muestre las opciones dependiendo si el usuario está logeado o no
+// Pienso que hay que hacerlo con useContexte del user
 
-  if (userLogged === null) {
-    return (
-      <DropdownButton id="dropdown-basic-button" title="Sign in">
-        <Dropdown.Item as={Link} to="/login">
-          Sing in <BiLogIn />
-        </Dropdown.Item>
-        <Dropdown.Item as={Link} to="/createAnAccount">
-          Create an account <BsFillPersonFill />
-        </Dropdown.Item>
-      </DropdownButton>
-    );
-  } else if (userLogged === true) {
-    return (
-      <DropdownButton id="dropdown-basic-button" title="Sign in">
-        <Dropdown.Item onClick={Logout} as={Link} to="/WineStore">
-          Logout <BiLogOut />
-        </Dropdown.Item>
-      </DropdownButton>
-    );
-  }
-}
+// function DropdownHandler() {
+//   const [userLogged, setUserLogged] = useState(null);
+
+//   if (userLogged === null) {
+//     return (
+//       <DropdownButton id="dropdown-basic-button" title="Sign in">
+//         <Dropdown.Item as={Link} to="/login">
+//           Sing in <BiLogIn />
+//         </Dropdown.Item>
+//         <Dropdown.Item as={Link} to="/createAnAccount">
+//           Create an account <BsFillPersonFill />
+//         </Dropdown.Item>
+//       </DropdownButton>
+//     );
+//   } else if (userLogged === true) {
+//     return (
+//       <DropdownButton id="dropdown-basic-button" title="Sign in">
+//         <Dropdown.Item onClick={Logout} as={Link} to="/WineStore">
+//           Logout <BiLogOut />
+//         </Dropdown.Item>
+//       </DropdownButton>
+//     );
+//   }
+// }
 
 function ColorSchemesExample() {
   return (
@@ -71,6 +75,7 @@ function ColorSchemesExample() {
             </Dropdown.Item>
           </DropdownButton>
           <CartOffCanvas />
+          <ButtonToggleTheme />
         </Container>
       </Navbar>
     </>

@@ -12,3 +12,7 @@ body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
 }
+
+.white-icon {
+  color: #ffffff;
+}
