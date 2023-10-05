@@ -15,4 +15,13 @@ body {
 
 .white-icon {
   color: #ffffff;
+  size: 20px;
+  width: 25px;
+  height: 25px;
+  padding: 0px 0px;
+}
+
+.button-toggle-theme.btn.btn-primary {
+  margin: 0px 8px;
+  padding: 6px 8px 6px 2px;
 }

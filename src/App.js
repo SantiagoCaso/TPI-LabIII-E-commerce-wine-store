@@ -1,6 +1,6 @@
 import "./App.css";
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Importa Router y Routes
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ColorSchemesExample from "./Components/NavBar/NavBar";
 import Home from "./Components/Home/Home";
 import ProductContainer from "./Components/Products/ProductContainer";
@@ -9,13 +9,9 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import CssBaseline from "@mui/material/CssBaseline";
 import ContactUs from "./Components/ContactUs/ContacUs";
 import PageNotFound from "./Components/404/PageNotFound";
-import {
-  ThemeContextProvider,
-  ThemeContext,
-} from "./Components/Theme/useContext";
+import { ThemeContextProvider } from "./Components/Theme/useContext";
 import { UserContextProvider } from "./Components/Login/userContext";
 import Login from "./Components/Login/Login";
-import { useContext } from "react";
 
 function App() {
   return (
