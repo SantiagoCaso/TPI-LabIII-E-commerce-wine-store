@@ -9,17 +9,16 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { firebaseConfig } from "../Firebase/Firebase";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { UserContext } from "./userContext";
 
 function Login() {
-  const [userType, setUserType] = useState(""); // Para definir que tipo de usuario ingresó
   const inputRef = useRef(null); // Para que al caragar el componente haga foco sobre el primer input
   const navigate = useNavigate(); // Para que cambie de componente si el usuario ingreso con exito
   const [showPassword, setShowPassword] = useState(false);
-  const [logedUser, setLogedUser] = useState(null);
-  let userId;
+  const { userType, setUserType } = useContext(UserContext); // Para definir que tipo de usuario ingresó
 
   //Cambiar de visible a no visible el input de password
   const changeShowPasswordHandler = () => {
@@ -89,11 +88,6 @@ function Login() {
       }
       navigate("/products");
     });
-    // } catch (error) {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //     console.error("Error al iniciar sesión", error, errorCode, errorMessage);
-    //   }
   };
 
   // Para que al caragar el componente haga foco sobre el primer input
