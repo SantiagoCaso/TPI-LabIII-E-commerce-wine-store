@@ -1,9 +1,8 @@
 import Form from "react-bootstrap/Form";
 import "./FormAddProducts.css";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import productContext from "../Items-Container/productContext";
-import CardProduct from "./Products";
 import ProductFilter from "../Selects/ProductFilter";
 import ProductsList from "./ProductsList";
 
@@ -18,6 +17,8 @@ function FormAddProducts() {
     cost: 0,
   });
 
+  // Función para que tome el valor de los inputs
+  // e significa event pero podría ser cualquier letre
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewProduct({
@@ -25,11 +26,13 @@ function FormAddProducts() {
       [name]: value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Product added:", newProduct);
     console.log("Array wines list: ", wines);
   };
+  // funcion addWine añade un nuevo vino al array de vinos
   const addWine = () => {
     setWines([...wines, newProduct]);
   };
@@ -40,7 +43,6 @@ function FormAddProducts() {
     let uniqueTypes = types.filter(
       (type, index) => types.indexOf(type) === index
     );
-    // uniqueYears.sort
     return uniqueTypes;
   }
 

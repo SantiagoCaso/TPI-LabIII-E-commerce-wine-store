@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import DrunkMen from "./drunk-icon-19.jpg";
 import "./PageNotFound.css";
+import { ThemeContext } from "../Theme/useContext";
 
-function PageNotFound({theme}) {
+function PageNotFound() {
+  const {theme} = useContext=(ThemeContext);
+
   return (
     <div className={theme}>
       <h1>404</h1>

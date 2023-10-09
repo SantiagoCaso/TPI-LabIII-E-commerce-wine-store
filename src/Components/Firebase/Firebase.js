@@ -5,9 +5,10 @@ import { doc, getDoc, getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyCp8ZFp7sHnpZ8y8kwTGSRBdCioMXC37Nw",
   authDomain: "login-de-usuario-winestore.firebaseapp.com",
+  databaseURL: "https://login-de-usuario-winestore-default-rtdb.firebaseio.com",
   projectId: "login-de-usuario-winestore",
   storageBucket: "login-de-usuario-winestore.appspot.com",
   messagingSenderId: "228339243771",
@@ -16,7 +17,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 export async function userExists(uid) {
   const docRef = doc(db, "user", uid);

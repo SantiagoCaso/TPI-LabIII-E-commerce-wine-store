@@ -3,10 +3,10 @@ import ActionAreaCard from "./ActionAreaCard";
 import ActionAreaCard2 from "./ActionAreaCard2";
 import ActionAreaCard3 from "./ActionAreaCard3";
 import { useContext } from "react";
-import ThemeContext from "../Theme/useContext";
+import {ThemeContext} from "../Theme/useContext";
 
 function UncontrolledExample() {
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <Carousel className={theme}>
@@ -29,8 +29,10 @@ function UncontrolledExample() {
   );
 }
 
-function AboutUs({ theme }) {
+function AboutUs() {
+  const { theme } = useContext(ThemeContext);
   return (
+
     <div className={theme}>
       <div className="div-container-card">
         <UncontrolledExample />

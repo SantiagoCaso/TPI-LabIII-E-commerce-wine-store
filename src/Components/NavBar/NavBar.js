@@ -6,14 +6,48 @@ import CartOffCanvas from "../Cart/CartOffCanvas";
 import { BsFillPersonFill } from "react-icons/bs";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import { BiLogIn } from "react-icons/bi";
+import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { PiWineFill } from "react-icons/pi";
 import "./NavBar.css";
-import { useContext } from "react";
-import ThemeContext from "../Theme/useContext";
+import { useEffect, useState } from "react";
+import ButtonToggleTheme from "../Theme/ButtonToggleTheme";
+
+const Logout = () => {
+  localStorage.removeItem("loggedUser");
+  console.log(
+    "El Id del usuario logiado es: " + localStorage.getItem("loggedUser")
+  );
+};
+
+// Intento para que el DropdownButton muestre las opciones dependiendo si el usuario está logeado o no
+// Pienso que hay que hacerlo con useContexte del user
+
+// function DropdownHandler() {
+//   const [userLogged, setUserLogged] = useState(null);
+
+//   if (userLogged === null) {
+//     return (
+//       <DropdownButton id="dropdown-basic-button" title="Sign in">
+//         <Dropdown.Item as={Link} to="/login">
+//           Sing in <BiLogIn />
+//         </Dropdown.Item>
+//         <Dropdown.Item as={Link} to="/createAnAccount">
+//           Create an account <BsFillPersonFill />
+//         </Dropdown.Item>
+//       </DropdownButton>
+//     );
+//   } else if (userLogged === true) {
+//     return (
+//       <DropdownButton id="dropdown-basic-button" title="Sign in">
+//         <Dropdown.Item onClick={Logout} as={Link} to="/WineStore">
+//           Logout <BiLogOut />
+//         </Dropdown.Item>
+//       </DropdownButton>
+//     );
+//   }
+// }
 
 function ColorSchemesExample() {
-  const theme = useContext(ThemeContext);
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
@@ -36,8 +70,12 @@ function ColorSchemesExample() {
             <Dropdown.Item as={Link} to="/createAnAccount">
               Create an account <BsFillPersonFill />
             </Dropdown.Item>
+            <Dropdown.Item onClick={Logout} as={Link} to="/WineStore">
+              Logout <BiLogOut />
+            </Dropdown.Item>
           </DropdownButton>
           <CartOffCanvas />
+          <ButtonToggleTheme />
         </Container>
       </Navbar>
     </>

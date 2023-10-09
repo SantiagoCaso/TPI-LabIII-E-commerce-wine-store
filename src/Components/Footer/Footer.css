@@ -33,10 +33,15 @@ p {
   font-size: 1em;
   flex: 1;
   min-width: 0;
-  padding: 20px;
+  padding: 10px;
+}
+
+.footer-col h5 {
+  margin-top: 17px;
 }
 
 .footer-col h3 {
+  margin-top: 17px;
   color: white;
   margin-left: 30px;
   margin-bottom: 5px;
@@ -44,8 +49,27 @@ p {
 }
 
 .ul li {
-  font-size: 20px;
+  font-size: 16px;
 }
 .container {
   bottom: 0;
+}
+
+h3 {
+  color: black;
+  margin-left: 36px;
+}
+
+img {
+  margin-right: 5px;
+  width: 25px;
+  height: 25px; 
+}
+
+.li-font {
+  font-size: 16px;
+}
+
+h5{
+  margin-left: 30px;
 }
