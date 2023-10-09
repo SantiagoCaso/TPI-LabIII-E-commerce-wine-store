@@ -11,6 +11,7 @@ import ContactUs from "./Components/ContactUs/ContacUs";
 import PageNotFound from "./Components/404/PageNotFound";
 import { ThemeContextProvider } from "./Components/Theme/useContext";
 import { UserContextProvider } from "./Components/Login/userContext";
+import { CartContextProvider } from "./Components/Cart/CartContext";
 import Login from "./Components/Login/Login";
 
 function App() {
@@ -18,18 +19,20 @@ function App() {
     <Router>
       <UserContextProvider>
         <ThemeContextProvider>
-          <CssBaseline />
-          <ColorSchemesExample />
-          <Routes>
-            <Route path="/" exact element={<AboutUs />} />
-            <Route path="/WineStore" element={<AboutUs />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/products" element={<ProductContainer />} />
-            <Route path="/createAnAccount" element={<CreateAnAccount />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/contactUs" element={<ContactUs />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
+          <CartContextProvider>
+            <CssBaseline />
+            <ColorSchemesExample />
+            <Routes>
+              <Route path="/" exact element={<AboutUs />} />
+              <Route path="/WineStore" element={<AboutUs />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/products" element={<ProductContainer />} />
+              <Route path="/createAnAccount" element={<CreateAnAccount />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/contactUs" element={<ContactUs />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </CartContextProvider>
         </ThemeContextProvider>
       </UserContextProvider>
     </Router>

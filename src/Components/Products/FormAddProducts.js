@@ -1,13 +1,14 @@
 import Form from "react-bootstrap/Form";
 import "./FormAddProducts.css";
 import Button from "react-bootstrap/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import productContext from "../Items-Container/productContext";
 import ProductFilter from "../Selects/ProductFilter";
 import ProductsList from "./ProductsList";
+import { WinesContext } from "./WinesContext";
 
 function FormAddProducts() {
-  const [wines, setWines] = useState([]);
+  const { wines, setWines } = useContext(WinesContext);
   const [newProduct, setNewProduct] = useState({
     name: "",
     winery: "",
@@ -115,7 +116,6 @@ function FormAddProducts() {
             <option value="Natural Wine">Natural/Orange Wine</option>
           </Form.Select>
           <div id="div-add-button">
-            {" "}
             <Button
               onClick={addWine}
               type="submit"
@@ -132,7 +132,7 @@ function FormAddProducts() {
           types={getWineType(wines)}
         />
         <div className="products-container">
-          <ProductsList wines={wines} />{" "}
+          <ProductsList />
           {/*Esto debería ir en ProductContainer*/}
         </div>
       </div>

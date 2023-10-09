@@ -2,9 +2,12 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./Products.css";
+import { useContext } from "react";
+import { CartContext } from "../Cart/CartContext";
 
-function CardProduct({ props }) {
+function CardProduct({ props, index }) {
   const { name, winery, vintage, type, url, cost } = props;
+  const { cartItem, setCartItem } = useContext(CartContext);
   return (
     <div>
       <Card
@@ -35,7 +38,12 @@ function CardProduct({ props }) {
           <Card.Text style={{ color: "black" }}>
             <b>Cost:</b> ${cost}
           </Card.Text>
-          <Button style={{ marginLeft: "150px" }} className="animated-button">
+          <Card.Text>Id: {index}</Card.Text>
+          <Button
+            style={{ marginLeft: "150px" }}
+            className="animated-button"
+            onClick={() => {}}
+          >
             Add to cart
           </Button>
         </Card.Body>
