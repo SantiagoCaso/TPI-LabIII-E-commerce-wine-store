@@ -11,7 +11,7 @@ function Footer() {
             <ul className="ul">
               <li>Privacy</li>
               <li>Accesibility</li>
-              <li>How can we help you?</li>
+              <li>Help</li>
             </ul>
           </div>
           <div className="footer-col">
