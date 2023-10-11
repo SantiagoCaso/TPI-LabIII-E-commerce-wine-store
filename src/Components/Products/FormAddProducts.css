@@ -1,9 +1,8 @@
 .products-container {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 15px;
   display: flex;
-  flex-wrap: wrap; 
-  gap: 20px; 
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .border-prodcut {

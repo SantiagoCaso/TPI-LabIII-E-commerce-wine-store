@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./Products.css";
 import { useContext } from "react";
-import { CartContext } from "../Cart/CartContext";
+import { OrderContext } from "../Order/OrderContext";
 
 function CardProduct({ props, index }) {
   const { name, winery, vintage, type, url, cost } = props;
-  const { cartItem, setCartItem } = useContext(CartContext);
+  const { order, setOrder } = useContext(OrderContext);
+  const [newOrder, setNewOrder] = useState({
+    orderName: name,
+    orderCost: cost,
+    orderImg: url,
+    orderId: index,
+  });
+
+  const addOrder = () => {
+    setOrder([...order, newOrder]);
+    console.log("Valores de order antes de apretar Add to Cart: ");
+    console.log(order);
+  };
+
   return (
     <div>
       <Card
@@ -42,7 +55,7 @@ function CardProduct({ props, index }) {
           <Button
             style={{ marginLeft: "150px" }}
             className="animated-button"
-            onClick={() => {}}
+            onClick={addOrder}
           >
             Add to cart
           </Button>

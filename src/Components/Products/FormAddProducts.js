@@ -6,8 +6,11 @@ import productContext from "../Items-Container/productContext";
 import ProductFilter from "../Selects/ProductFilter";
 import ProductsList from "./ProductsList";
 import { WinesContext } from "./WinesContext";
+import { UserContext } from "../Login/userContext";
+import { OrderContext } from "../Order/OrderContext";
 
 function FormAddProducts() {
+  const { userType } = useContext(UserContext);
   const { wines, setWines } = useContext(WinesContext);
   const [newProduct, setNewProduct] = useState({
     name: "",
@@ -18,8 +21,10 @@ function FormAddProducts() {
     cost: 0,
   });
 
+  const { order } = useContext(OrderContext);
+
   // Función para que tome el valor de los inputs
-  // e significa event pero podría ser cualquier letre
+  // e significa event pero podría ser cualquier letra
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewProduct({
@@ -123,7 +128,7 @@ function FormAddProducts() {
               id="add-button"
             >
               Add Wine
-            </Button>{" "}
+            </Button>
           </div>
         </form>
         {/*Esto debería ir en ProductContainer*/}
@@ -131,11 +136,12 @@ function FormAddProducts() {
           onSelectWine={handleInputChange}
           types={getWineType(wines)}
         />
-        <div className="products-container">
-          <ProductsList />
-          {/*Esto debería ir en ProductContainer*/}
-        </div>
       </div>
+      <div className="products-container">
+        <ProductsList />
+        {/*Esto debería ir en ProductContainer*/}
+      </div>
+      <h1>{order}</h1>
     </productContext.Provider>
   );
 }
