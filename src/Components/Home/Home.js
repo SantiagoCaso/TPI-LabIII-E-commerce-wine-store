@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./Home.css";
 import { ThemeContext } from "../Theme/useContext";
-
+import ProductsList from "../Products/ProductsList";
 const Home = () => {
   const { theme } = useContext(ThemeContext);
   return (

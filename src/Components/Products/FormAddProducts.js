@@ -1,13 +1,16 @@
 import Form from "react-bootstrap/Form";
 import "./FormAddProducts.css";
 import Button from "react-bootstrap/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import productContext from "../Items-Container/productContext";
 import ProductFilter from "../Selects/ProductFilter";
 import ProductsList from "./ProductsList";
+import { WinesContext } from "./WinesContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function FormAddProducts() {
-  const [wines, setWines] = useState([]);
+  const { wines, setWines } = useContext(WinesContext);
   const [newProduct, setNewProduct] = useState({
     name: "",
     winery: "",
@@ -32,9 +35,17 @@ function FormAddProducts() {
     console.log("Product added:", newProduct);
     console.log("Array wines list: ", wines);
   };
+  
   // funcion addWine añade un nuevo vino al array de vinos
   const addWine = () => {
-    setWines([...wines, newProduct]);
+    if (newProduct.name === "" || newProduct.winery === "" || newProduct.vintage === 0 || newProduct.type === "") {
+      errorMessage();
+    } else {
+      setWines([...wines, newProduct]);
+      succesedMessage();
+    }
+    
+
   };
 
   //Esto debería estar en Products.js
@@ -45,6 +56,29 @@ function FormAddProducts() {
     );
     return uniqueTypes;
   }
+
+  const succesedMessage = () => {
+    toast.success('Wine added', {
+      position: 'top-right', // Posición de la notificación
+      autoClose: 3000,       // Duración en milisegundos antes de que se cierre automáticamente (opcional)
+      hideProgressBar: false, // Mostrar barra de progreso (opcional)
+      closeOnClick: true,    // Cerrar la notificación al hacer clic (opcional)
+      pauseOnHover: true,    // Pausar la notificación al pasar el mouse por encima (opcional)
+    })
+  }
+
+  const errorMessage = () =>
+    toast.error("Failed to add wine", {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+
 
   return (
     <productContext.Provider value={wines}>
@@ -117,14 +151,15 @@ function FormAddProducts() {
           <div id="div-add-button">
             {" "}
             <Button 
-              className="add-wine"
+              className="add-wine" 
               onClick={addWine}
               type="submit"
               variant="info"
               id="add-button"
             >
               Add Wine
-            </Button>{" "}
+            </Button >{" " }
+            
           </div>
         </form>
         {/*Esto debería ir en ProductContainer*/}
@@ -133,7 +168,7 @@ function FormAddProducts() {
           types={getWineType(wines)}
         />
         <div className="products-container">
-          <ProductsList wines={wines} />{" "}
+          <ProductsList />
           {/*Esto debería ir en ProductContainer*/}
         </div>
       </div>

@@ -2,7 +2,6 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { GrCart } from "react-icons/gr";
-import CardProduct from "../Products/Products";
 
 function CartOffCanvas() {
   const [show, setShow] = useState(false);

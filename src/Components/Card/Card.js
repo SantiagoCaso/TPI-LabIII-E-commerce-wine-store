@@ -32,7 +32,6 @@ export default function BasicCard() {
         <Typography variant="body2">
           well meaning and kindly.
           <br />
-          {'"a benevolent smile"'}
         </Typography>
       </CardContent>
       <CardActions>

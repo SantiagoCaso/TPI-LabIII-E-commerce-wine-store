@@ -31,7 +31,11 @@
 .add-wine {
   margin-bottom: 15px;
 }
-.form-control {
-  background-color: #3cbc8d;
+.form-control-light {
+  background-color: #d35776;
   color: white;
+}
+
+.form-control-dark {
+  background-color: #ffffff;
 }
