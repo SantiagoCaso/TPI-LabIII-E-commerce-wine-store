@@ -18,8 +18,8 @@ function ActionAreaCard3() {
           image={Vinos}
           alt="green iguana"
         />
-        <img src={Vinos} alt="Vinos" className="img-carousel"></img>
-        <CardContent style={{ marginBottom: "30px" }}>
+        <img src={Vinos} alt="Vinos" className="card-image"></img>
+        <CardContent className="card-content" style={{ marginBottom: "30px" }}>
           <Typography gutterBottom variant="h5" component="div">
             Wine lovers
           </Typography>

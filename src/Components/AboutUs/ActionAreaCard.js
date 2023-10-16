@@ -19,7 +19,7 @@ function ActionAreaCard({ theme }) {
             image={Vinedos}
             alt="green iguana"
           />
-          <img src={Vinedos} alt="Vinedos"></img>
+          <img src={Vinedos} alt="Vinedos" className="card-image"></img>
           <CardContent className="CardContent">
             <Typography gutterBottom variant="h5" component="div">
               A tribute to the art of patience
