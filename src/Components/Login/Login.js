@@ -13,6 +13,7 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { firebaseConfig } from "../Firebase/Firebase";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { UserContext } from "./userContext";
+import Account from "../Account/Account";
 
 function Login() {
   const inputRef = useRef(null); // Para que al caragar el componente haga foco sobre el primer input
@@ -137,6 +138,8 @@ function Login() {
           Create one!
         </Link>
       </Form.Text>
+      <Account email={email} password={password} />
+
       <h3 style={{ color: "black" }}>{userType}</h3>
       <Button onClick={loginGoogle} variant="primary">
         Login with Google

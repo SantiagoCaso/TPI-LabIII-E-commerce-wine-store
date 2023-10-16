@@ -8,15 +8,16 @@ import { OrderContext } from "../Order/OrderContext";
 function CardProduct({ props, index }) {
   const { name, winery, vintage, type, url, cost } = props;
   const { order, setOrder } = useContext(OrderContext);
-  const [newOrder, setNewOrder] = useState({
+  const [newProduct, setNewProduct] = useState({
     orderName: name,
     orderCost: cost,
     orderImg: url,
     orderId: index,
   });
 
+  // añadir un producto a la bariable global de pedido
   const addOrder = () => {
-    setOrder([...order, newOrder]);
+    setOrder([...order, newProduct]);
     console.log("Valores de order antes de apretar Add to Cart: ");
     console.log(order);
   };

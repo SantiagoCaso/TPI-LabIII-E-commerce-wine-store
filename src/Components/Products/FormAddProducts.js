@@ -15,10 +15,10 @@ function FormAddProducts() {
   const [newProduct, setNewProduct] = useState({
     name: "",
     winery: "",
-    vintage: 0,
+    vintage: 20,
     type: "",
     url: "",
-    cost: 0,
+    cost: 1,
   });
 
   const { order } = useContext(OrderContext);
@@ -37,6 +37,15 @@ function FormAddProducts() {
     e.preventDefault();
     console.log("Product added:", newProduct);
     console.log("Array wines list: ", wines);
+    // Limpiar Form
+    setNewProduct({
+      name: "",
+      vintage: 20,
+      winery: "",
+      type: "",
+      url: "",
+      cost: 1,
+    });
   };
   // funcion addWine añade un nuevo vino al array de vinos
   const addWine = () => {
@@ -138,8 +147,7 @@ function FormAddProducts() {
         />
       </div>
       <div className="products-container">
-        <ProductsList />
-        {/*Esto debería ir en ProductContainer*/}
+        <ProductsList getProductList={wines} />
       </div>
       <h1>{order}</h1>
     </productContext.Provider>

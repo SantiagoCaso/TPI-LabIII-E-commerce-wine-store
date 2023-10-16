@@ -13,13 +13,15 @@ import { ThemeContextProvider } from "./Components/Theme/useContext";
 import { UserContextProvider } from "./Components/Login/userContext";
 import { CartContextProvider } from "./Components/Cart/CartContext";
 import Login from "./Components/Login/Login";
+import { OrderContextProvider } from "./Components/Order/OrderContext";
+import CartContainer from "./Components/Cart/CartContainer";
 
 function App() {
   return (
     <Router>
       <UserContextProvider>
         <ThemeContextProvider>
-          <CartContextProvider>
+          <OrderContextProvider>
             <CssBaseline />
             <ColorSchemesExample />
             <Routes>
@@ -31,8 +33,9 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/contactUs" element={<ContactUs />} />
               <Route path="*" element={<PageNotFound />} />
+              <Route path="/cart" element={<CartContainer />} />
             </Routes>
-          </CartContextProvider>
+          </OrderContextProvider>
         </ThemeContextProvider>
       </UserContextProvider>
     </Router>
