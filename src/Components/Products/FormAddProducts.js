@@ -8,6 +8,8 @@ import ProductsList from "./ProductsList";
 import { WinesContext } from "./WinesContext";
 import { UserContext } from "../Login/userContext";
 import { OrderContext } from "../Order/OrderContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function FormAddProducts() {
   const { userType } = useContext(UserContext);
@@ -47,9 +49,20 @@ function FormAddProducts() {
       cost: 1,
     });
   };
+
   // funcion addWine añade un nuevo vino al array de vinos
   const addWine = () => {
-    setWines([...wines, newProduct]);
+    if (
+      newProduct.name === "" ||
+      newProduct.winery === "" ||
+      newProduct.vintage === 0 ||
+      newProduct.type === ""
+    ) {
+      errorMessage();
+    } else {
+      setWines([...wines, newProduct]);
+      succesedMessage();
+    }
   };
 
   //Esto debería estar en Products.js
@@ -60,6 +73,28 @@ function FormAddProducts() {
     );
     return uniqueTypes;
   }
+
+  const succesedMessage = () => {
+    toast.success("Wine added", {
+      position: "top-right", // Posición de la notificación
+      autoClose: 3000, // Duración en milisegundos antes de que se cierre automáticamente (opcional)
+      hideProgressBar: false, // Mostrar barra de progreso (opcional)
+      closeOnClick: true, // Cerrar la notificación al hacer clic (opcional)
+      pauseOnHover: true, // Pausar la notificación al pasar el mouse por encima (opcional)
+    });
+  };
+
+  const errorMessage = () =>
+    toast.error("Failed to add wine", {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
 
   return (
     <productContext.Provider value={wines}>
@@ -130,7 +165,9 @@ function FormAddProducts() {
             <option value="Natural Wine">Natural/Orange Wine</option>
           </Form.Select>
           <div id="div-add-button">
+            {" "}
             <Button
+              className="add-wine"
               onClick={addWine}
               type="submit"
               variant="info"

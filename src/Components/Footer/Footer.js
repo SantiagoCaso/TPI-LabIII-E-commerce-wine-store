@@ -7,42 +7,39 @@ function Footer() {
       <div className="container">
         <div className="row">
           <div className="footer-col">
-            <h3 style={{ color: "black" }}> ㅤ </h3>
-            <ul>
-              <li style={{ fontSize: "20px" }}>Privacy</li>
-              <li style={{ fontSize: "20px" }}>Accesibility</li>
-              <li style={{ fontSize: "20px" }}>How can we help you?</li>
+            <h3 className="h3"> ㅤ </h3>
+            <ul className="ul">
+              <li>Privacy</li>
+              <li>Accesibility</li>
+              <li>Help</li>
             </ul>
           </div>
           <div className="footer-col">
-            <h3>Made in Argentina </h3>
-            <ul>
-              <li style={{ fontSize: "20px" }}>Santiago Ignacio Caso</li>
-              <li style={{ fontSize: "20px" }}>Luciano Beltramino</li>
-              <li style={{ fontSize: "20px" }}>Mora Vallejos</li>
+            <h5 className="h5"> Made in Argentina </h5>
+            <ul className="ul">
+              <li>Santiago Ignacio Caso</li>
+              <li>Luciano Beltramino</li>
+              <li>Mora Vallejos</li>
             </ul>
           </div>
           <div className="footer-col">
-            <h3 style={{ marginLeft: "36px" }}> Contact us! </h3>
-            <ul>
-              <li style={{ fontSize: "20px" }}>
+            <h5> Contact us! </h5>
+            <ul className="ul">
+              <li className="li-font">
                 <img
                   src="/images/twitter-logo.png"
-                  style={{ marginRight: "5px", width: "25px", height: "25px" }}
                 />{" "}
                 Twitter{" "}
               </li>
-              <li style={{ fontSize: "20px" }}>
+              <li className="li-font">
                 <img
                   src="/images/facebook-logo.png"
-                  style={{ marginRight: "5px", width: "25px", height: "25px" }}
                 />{" "}
                 Facebook{" "}
               </li>
-              <li style={{ fontSize: "20px" }}>
-                <img
+              <li className="li-font">
+                <img className="img"
                   src="/images/instagram-logo.png"
-                  style={{ marginRight: "5px", width: "25px", height: "25px" }}
                 />{" "}
                 Instagram{" "}
               </li>

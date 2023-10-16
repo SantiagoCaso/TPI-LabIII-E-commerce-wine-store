@@ -1,6 +1,7 @@
 .text-muted2 {
   color: white;
   --bs-text-opacity: 1;
+  margin-bottom: 300px;
 }
 
 .div-form-login-container {

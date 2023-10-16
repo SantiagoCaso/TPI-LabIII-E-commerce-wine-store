@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import FormAddProducts from "./FormAddProducts";
 import "./FormAddProducts.css";
+import { ThemeContext } from "../Theme/useContext";
 import { WinesContextProvider } from "./WinesContext";
 import { OrderContextProvider } from "../Order/OrderContext";
 
 function ProductContainer() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div>
+    <div className={theme}>
       <OrderContextProvider>
         <WinesContextProvider>
           {/*Acá debería estar FormAddProducts, ProductsList y ProductFilter*/}

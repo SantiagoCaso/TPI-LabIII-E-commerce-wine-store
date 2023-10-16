@@ -16,6 +16,9 @@ import Login from "./Components/Login/Login";
 import { OrderContextProvider } from "./Components/Order/OrderContext";
 import CartContainer from "./Components/Cart/CartContainer";
 
+import Footer from "./Components/Footer/Footer";
+import { ToastContainer } from "react-toastify";
+
 function App() {
   return (
     <Router>
@@ -23,6 +26,7 @@ function App() {
         <ThemeContextProvider>
           <OrderContextProvider>
             <CssBaseline />
+            <ToastContainer />
             <ColorSchemesExample />
             <Routes>
               <Route path="/" exact element={<AboutUs />} />
@@ -38,6 +42,7 @@ function App() {
           </OrderContextProvider>
         </ThemeContextProvider>
       </UserContextProvider>
+      <Footer />
     </Router>
   );
 }

@@ -1,6 +1,10 @@
 import Form from "react-bootstrap/Form";
+import React, { useContext } from "react";
+import { ThemeContext } from "../Theme/useContext";
 
 function ContactUs() {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <Form>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

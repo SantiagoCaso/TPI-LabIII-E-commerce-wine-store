@@ -24,37 +24,25 @@ function CardProduct({ props, index }) {
 
   return (
     <div>
-      <Card
-        style={{
-          width: "18rem",
-          border: "6px solid black",
-          borderRadius: "5px",
-        }}
-      >
-        <Card.Img
-          variant="top"
-          src={url}
-          alt={name}
-          style={{ borderBottom: "1px solid black" }}
-        />
+      <Card className="card">
+        <Card.Img className="card-img" variant="top" src={url} alt={name} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
-          <Card.Text style={{ color: "black" }}>
+          <Card.Text className="card-text">
             <b>Winery: </b> {winery}
           </Card.Text>
-          <Card.Text style={{ color: "black" }}>
+          <Card.Text className="card-text">
             <b> Vintage: </b> {vintage}
           </Card.Text>
-          <Card.Text style={{ color: "black" }}>
+          <Card.Text className="card-text">
             <b> Wine Type: </b>
             {type}
           </Card.Text>
-          <Card.Text style={{ color: "black" }}>
+          <Card.Text className="card-text">
             <b>Cost:</b> ${cost}
           </Card.Text>
           <Card.Text>Id: {index}</Card.Text>
           <Button
-            style={{ marginLeft: "150px" }}
             className="animated-button"
             onClick={addOrder}
           >

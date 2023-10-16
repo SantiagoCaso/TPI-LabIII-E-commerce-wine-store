@@ -5,6 +5,17 @@
   flex-direction: column;
 }
 
+.p {
+  color: white;
+}
+
+.form-label {
+  margin-top: 10px;
+}
+
+.button-account {
+  margin-bottom: 250px;
+}
 .form-control-password {
   display: grid;
   grid-template-columns: 5fr 1fr;

@@ -26,3 +26,15 @@
   justify-content: flex-end;
   margin-top: 20px;
 }
+
+.add-wine {
+  margin-bottom: 15px;
+}
+.form-control-light {
+  background-color: #d35776;
+  color: white;
+}
+
+.form-control-dark {
+  background-color: #ffffff;
+}

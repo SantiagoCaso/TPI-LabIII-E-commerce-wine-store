@@ -18,7 +18,7 @@ function ActionAreaCard2() {
           image={Bodega}
           alt="green iguana"
         />
-        <img src={Bodega} className="img-carousel"></img>
+        <img src={Bodega} className="card-image" ></img>
         <CardContent style={{ marginBottom: "30px" }}>
           <Typography gutterBottom variant="h5" component="div">
             Oak barrels
