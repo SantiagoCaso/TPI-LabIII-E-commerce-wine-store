@@ -10,9 +10,12 @@ import { UserContext } from "../Login/userContext";
 import { OrderContext } from "../Order/OrderContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../Firebase/Firebase";
 
 function FormAddProducts() {
   const { userType } = useContext(UserContext);
+  const productCollection = collection(db, "products");
   const { wines, setWines } = useContext(WinesContext);
   const [newProduct, setNewProduct] = useState({
     name: "",
@@ -39,6 +42,8 @@ function FormAddProducts() {
     e.preventDefault();
     console.log("Product added:", newProduct);
     console.log("Array wines list: ", wines);
+    addOrEditProduct();
+    addOrEditProduct(newProduct);
     // Limpiar Form
     setNewProduct({
       name: "",
@@ -62,6 +67,18 @@ function FormAddProducts() {
     } else {
       setWines([...wines, newProduct]);
       succesedMessage();
+      addOrEditProduct(newProduct);
+    }
+  };
+
+  // Añadir productos a la lista de productos de firebase
+
+  const addOrEditProduct = async (newProduct) => {
+    try {
+      const newDocRef = await addDoc(productCollection, newProduct);
+      console.log("Nuevo vino agregado con ID: ", newDocRef.id);
+    } catch (error) {
+      console.error("Error al agregar el vino: ", error);
     }
   };
 
@@ -165,7 +182,6 @@ function FormAddProducts() {
             <option value="Natural Wine">Natural/Orange Wine</option>
           </Form.Select>
           <div id="div-add-button">
-            {" "}
             <Button
               className="add-wine"
               onClick={addWine}
@@ -184,7 +200,7 @@ function FormAddProducts() {
         />
       </div>
       <div className="products-container">
-        <ProductsList getProductList={wines} />
+        <ProductsList getProductList={productCollection} />
       </div>
       <h1>{order}</h1>
     </productContext.Provider>

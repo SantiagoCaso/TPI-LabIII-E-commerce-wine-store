@@ -5,6 +5,7 @@ import { OrderContextProvider } from "../Order/OrderContext";
 
 const ProductsList = () => {
   const { wines } = useContext(WinesContext);
+
   return (
     <>
       <OrderContextProvider>

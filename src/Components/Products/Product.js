@@ -42,10 +42,7 @@ function CardProduct({ props, index }) {
             <b>Cost:</b> ${cost}
           </Card.Text>
           <Card.Text>Id: {index}</Card.Text>
-          <Button
-            className="animated-button"
-            onClick={addOrder}
-          >
+          <Button className="animated-button" onClick={addOrder}>
             Add to cart
           </Button>
         </Card.Body>

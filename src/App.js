@@ -14,7 +14,6 @@ import { UserContextProvider } from "./Components/Login/userContext";
 import { CartContextProvider } from "./Components/Cart/CartContext";
 import Login from "./Components/Login/Login";
 import { OrderContextProvider } from "./Components/Order/OrderContext";
-import CartContainer from "./Components/Cart/CartContainer";
 
 import Footer from "./Components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
@@ -37,7 +36,6 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/contactUs" element={<ContactUs />} />
               <Route path="*" element={<PageNotFound />} />
-              <Route path="/cart" element={<CartContainer />} />
             </Routes>
           </OrderContextProvider>
         </ThemeContextProvider>

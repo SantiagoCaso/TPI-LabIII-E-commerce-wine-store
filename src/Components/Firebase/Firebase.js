@@ -1,9 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { doc, getDocs, getDoc, collection } from "firebase/firestore";
-import { getDatabase } from "firebase/database";
-
+import { doc, getDocs, getDoc, getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
@@ -17,9 +15,9 @@ export const firebaseConfig = {
   appId: "1:228339243771:web:88cb6e47f72dc13956ae5e",
 };
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-const db = getDatabase(app);
+export const db = getFirestore(app);
 
 export async function userExists(uid) {
   const docRef = doc(db, "user", uid);
