@@ -13,10 +13,10 @@ function CartOffCanvas() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary">
         <GrCart />
       </Button>
-
+      {/* 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Cart</Offcanvas.Title>
@@ -39,7 +39,7 @@ function CartOffCanvas() {
             )}
           </ul>
         </Offcanvas.Body>
-      </Offcanvas>
+      </Offcanvas> */}
     </>
   );
 }

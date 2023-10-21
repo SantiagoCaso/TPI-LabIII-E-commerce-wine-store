@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ColorSchemesExample from "./Components/NavBar/NavBar";
 import Home from "./Components/Home/Home";
@@ -14,9 +14,9 @@ import { UserContextProvider } from "./Components/Login/userContext";
 import { CartContextProvider } from "./Components/Cart/CartContext";
 import Login from "./Components/Login/Login";
 import { OrderContextProvider } from "./Components/Order/OrderContext";
-
 import Footer from "./Components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
+import CartContainer from "./Components/Cart/CartContainer";
 
 function App() {
   return (
@@ -36,6 +36,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/contactUs" element={<ContactUs />} />
               <Route path="*" element={<PageNotFound />} />
+              <Route path="/cart" element={<CartContainer />} />
             </Routes>
           </OrderContextProvider>
         </ThemeContextProvider>

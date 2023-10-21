@@ -12,6 +12,8 @@ import "./NavBar.css";
 import { useEffect, useState } from "react";
 import ButtonToggleTheme from "../Theme/ButtonToggleTheme";
 import { OrderContextProvider } from "../Order/OrderContext";
+import { Button } from "react-bootstrap";
+import { GrCart } from "react-icons/gr";
 
 const Logout = () => {
   localStorage.removeItem("loggedUser");
@@ -76,7 +78,9 @@ function ColorSchemesExample() {
                 Logout <BiLogOut />
               </Dropdown.Item>
             </DropdownButton>
-            <CartOffCanvas />
+            <Button variant="primary" as={Link} to="/cart">
+              <GrCart />
+            </Button>
             <ButtonToggleTheme />
           </Container>
         </Navbar>

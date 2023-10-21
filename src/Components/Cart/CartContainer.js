@@ -1,19 +1,15 @@
 import React, { useContext } from "react";
 import { OrderContext } from "../Order/OrderContext";
 import CartItem from "./CartItem";
+import { ThemeContext } from "../Theme/useContext";
 
 const CartContainer = () => {
   const { order } = useContext(OrderContext);
+  const { theme } = useContext(ThemeContext);
   return (
-    <div>
-      <p>Listado de Productos en el carrito de compras.</p>
-      <ul>
-        {order && order.length > 0 ? (
-          order.map((props, index) => <CartItem props={props} key={index} />)
-        ) : (
-          <p>El carrito está vacio</p>
-        )}
-      </ul>
+    <div className={theme}>
+      <p>Listado de Productos en el carrito de compras</p>
+      <h1>{order}</h1>
     </div>
   );
 };

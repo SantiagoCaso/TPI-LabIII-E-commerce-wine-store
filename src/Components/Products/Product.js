@@ -17,9 +17,9 @@ function CardProduct({ props, index }) {
 
   // añadir un producto a la bariable global de pedido
   const addOrder = () => {
-    setOrder([...order, newProduct]);
+    setOrder("Valor nuevo de order");
     console.log("Valores de order antes de apretar Add to Cart: ");
-    console.log(order);
+    console.log({ order });
   };
 
   return (
