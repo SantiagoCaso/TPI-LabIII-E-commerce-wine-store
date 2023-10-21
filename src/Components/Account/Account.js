@@ -1,62 +1,56 @@
-import React, { useReducer, useState } from "react";
+import React, { useState, useContext } from "react";
+import { ThemeContext } from "../Theme/useContext";
+import firebase from "firebase/app";
+import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
 
-const Account = ({ email, name, password }) => {
-  const initialState = {
-    name: name,
-    email: email,
-    password: password,
-  };
+const Account = () => {
+  const { theme } = useContext(ThemeContext);
+  const [name, setName] = useState("");
+  const auth = getAuth();
+  const user = auth.currentUser;
 
-  const userReducer = (state, action) => {
-    switch (action.type) {
-      case "SET_NAME":
-        return { ...state, name: action.payload };
-      case "SET_EMAIL":
-        return { ...state, email: action.payload };
-      case "SET_PASSWORD":
-        return { ...state, password: action.payload };
-      default:
-        return state;
+  const nameHandler = async () => {
+    try {
+      await updateProfile(user, {
+        displayName: name,
+      });
+      console.log("Nombre de usuario actualizado con éxito");
+    } catch (error) {
+      console.error("Error al actualizar el nombre de usuario:", error);
     }
   };
 
-  const [user, dispatch] = useReducer(userReducer, initialState);
-
-  const handleNameChange = (e) => {
-    dispatch({ type: "SET_NAME", payload: e.target.value });
-  };
-
-  const handleEmailChange = (e) => {
-    dispatch({ type: "SET_EMAIL", payload: e.target.value });
-  };
-
-  const handlePasswordChange = (e) => {
-    dispatch({ type: "SET_PASSWORD", payload: e.target.value });
-  };
-
-  const [showInputEmail, setInputEmail] = useState(false);
-  const changeInputEmail = () => {
-    setInputEmail(!showInputEmail);
-  };
-
   return (
-    <div>
-      {showInputEmail ? (
-        <h2>
-          Email: {email}
-          <button onClick={changeInputEmail}>Change Email</button>
-        </h2>
-      ) : (
-        <h2>
-          <input type="text" value={user.email} onChange={handleNameChange} />
-          <button onClick={changeInputEmail}>Save</button>
-        </h2>
-      )}
+    <>
+      {user ? (
+        <div className={theme}>
+          <h1>User Data</h1>
+          <h3>
+            Name: {name === null ? user.displayName : name}
+            {user.displayName === null ? (
+              <>
+                <p>Set user name: </p>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <button onClick={nameHandler}>Set name</button>
+              </>
+            ) : (
+              user.displayName
+            )}
+          </h3>
 
-      <h2>
-        <button>Change password</button>
-      </h2>
-    </div>
+          <h3>Email: {user.email}</h3>
+          <h3>Id: {user.uid}</h3>
+          <h3>Password: ********</h3>
+          <br></br>
+        </div>
+      ) : (
+        <h2>You are not registered</h2>
+      )}
+    </>
   );
 };
 

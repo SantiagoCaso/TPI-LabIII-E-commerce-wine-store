@@ -17,6 +17,7 @@ import { OrderContextProvider } from "./Components/Order/OrderContext";
 import Footer from "./Components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import CartContainer from "./Components/Cart/CartContainer";
+import Account from "./Components/Account/Account";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
               <Route path="/contactUs" element={<ContactUs />} />
               <Route path="*" element={<PageNotFound />} />
               <Route path="/cart" element={<CartContainer />} />
+              <Route path="/account" element={<Account />} />
             </Routes>
           </OrderContextProvider>
         </ThemeContextProvider>
