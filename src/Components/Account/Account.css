@@ -1,0 +1,46 @@
+.div-user-flex {
+  display: flex;
+  align-items: center;
+}
+
+.div-user-flex h3 {
+  margin-right: 10px;
+}
+
+.div-user-flex input {
+  margin-right: 10px;
+}
+
+.show-set-new-data {
+  visibility: visible;
+  border: solid red 2px;
+  border-radius: 10px;
+  padding: 3px;
+  margin: 20px;
+}
+
+.hide-set-new-data {
+  visibility: hidden;
+  border: solid red 2px;
+  border-radius: 10px;
+  padding: 3px;
+  margin: 20px;
+}
+
+#user-email {
+  display: flex;
+  align-items: center;
+}
+
+#user-password input {
+  margin-right: 10px;
+}
+
+#user-name {
+  display: flex;
+  align-items: center;
+}
+#user-password {
+  display: flex;
+  align-items: center;
+}
