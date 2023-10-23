@@ -18,6 +18,7 @@ import { UserContext } from "./userContext";
 import Account from "../Account/Account";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { errorMessage, succesedMessage } from "../Tostify/MessagesToastify";
 
 function Login() {
   const inputRef = useRef(null); // Para que al caragar el componente haga foco sobre el primer input
@@ -26,28 +27,6 @@ function Login() {
   const { userType, setUserType } = useContext(UserContext); // Para definir que tipo de usuario ingresó
 
   const { theme } = useContext(ThemeContext);
-
-  const succesedMessage = () => {
-    toast.success("Succesed login!", {
-      position: "top-right", // Posición de la notificación
-      autoClose: 3000, // Duración en milisegundos antes de que se cierre automáticamente (opcional)
-      hideProgressBar: false, // Mostrar barra de progreso (opcional)
-      closeOnClick: true, // Cerrar la notificación al hacer clic (opcional)
-      pauseOnHover: true, // Pausar la notificación al pasar el mouse por encima (opcional)
-    });
-  };
-
-  const errorMessage = () =>
-    toast.error("Failed to login.", {
-      position: "top-left",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
 
   //Cambiar de visible a no visible el input de password
   const changeShowPasswordHandler = () => {
@@ -81,10 +60,10 @@ function Login() {
           "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
         );
       }
-      succesedMessage();
+      succesedMessage("Succesed login!");
       navigate("/products");
     } catch (error) {
-      errorMessage();
+      errorMessage("Failed to login");
       console.log(error);
     }
   }
@@ -110,7 +89,7 @@ function Login() {
           "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
         );
       } else if (user.uid === null) {
-        errorMessage();
+        errorMessage("Failed to login");
       } else {
         setUserType("User");
         console.log("Welcome User");
@@ -119,7 +98,7 @@ function Login() {
           "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
         );
       }
-      succesedMessage();
+      succesedMessage("Succesed login!");
       navigate("/products");
     });
   };

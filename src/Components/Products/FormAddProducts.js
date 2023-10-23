@@ -12,6 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../Firebase/Firebase";
+import { errorMessage, succesedMessage } from "../Tostify/MessagesToastify";
 
 function FormAddProducts() {
   const { userType } = useContext(UserContext);
@@ -63,10 +64,10 @@ function FormAddProducts() {
       newProduct.vintage === 0 ||
       newProduct.type === ""
     ) {
-      errorMessage();
+      errorMessage("Failed to add wine");
     } else {
       setWines([...wines, newProduct]);
-      succesedMessage();
+      succesedMessage("Wine added");
       addOrEditProduct(newProduct);
     }
   };
@@ -90,28 +91,6 @@ function FormAddProducts() {
     );
     return uniqueTypes;
   }
-
-  const succesedMessage = () => {
-    toast.success("Wine added", {
-      position: "top-right", // Posición de la notificación
-      autoClose: 3000, // Duración en milisegundos antes de que se cierre automáticamente (opcional)
-      hideProgressBar: false, // Mostrar barra de progreso (opcional)
-      closeOnClick: true, // Cerrar la notificación al hacer clic (opcional)
-      pauseOnHover: true, // Pausar la notificación al pasar el mouse por encima (opcional)
-    });
-  };
-
-  const errorMessage = () =>
-    toast.error("Failed to add wine", {
-      position: "top-left",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
 
   return (
     <productContext.Provider value={wines}>

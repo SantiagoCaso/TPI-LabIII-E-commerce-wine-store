@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./SignIn.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { auth } from "../Firebase/Firebase";
 import {
   createUserWithEmailAndPassword,
@@ -13,12 +13,22 @@ import Account from "../Account/Account";
 import { ThemeContext } from "../Theme/useContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  errorMessage,
+  succesedMessage,
+  warnMessage,
+} from "../Tostify/MessagesToastify";
+import { useNavigate } from "react-router-dom";
 
 function CreateAnAccount() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const navigate = useNavigate();
+  const inputRef = useRef();
 
   const { theme } = useContext(ThemeContext);
 
@@ -28,43 +38,28 @@ function CreateAnAccount() {
     setShowPassword(!showPassword);
   };
 
-  const succesedMessage = () => {
-    toast.success("Welcome!", {
-      position: "top-right", // Posición de la notificación
-      autoClose: 3000, // Duración en milisegundos antes de que se cierre automáticamente (opcional)
-      hideProgressBar: false, // Mostrar barra de progreso (opcional)
-      closeOnClick: true, // Cerrar la notificación al hacer clic (opcional)
-      pauseOnHover: true, // Pausar la notificación al pasar el mouse por encima (opcional)
-    });
-  };
-
-  const errorMessage = () =>
-    toast.error("Failed to create account", {
-      position: "top-left",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-
   // Crear usuario nuevo y registrarlo en Authentication de Firebase
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        succesedMessage();
+        succesedMessage("Welcome! New user created");
         console.log("Usuario creado con éxito:", user);
+        navigate("/account");
       })
       .catch((error) => {
         // Ocurrió un error al crear la cuenta, puedes manejar el error aquí
-        errorMessage();
+        errorMessage("Failed to create account");
         console.error("Error al crear la cuenta:", error);
       });
   };
+
+  // Para que al caragar el componente haga foco sobre el primer input
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   return (
     <div className={theme}>
@@ -73,6 +68,7 @@ function CreateAnAccount() {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="form-label">Email address</Form.Label>
           <Form.Control
+            ref={inputRef}
             type="email"
             placeholder="Enter email"
             value={email}

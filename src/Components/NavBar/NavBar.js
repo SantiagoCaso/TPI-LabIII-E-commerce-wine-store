@@ -15,6 +15,7 @@ import { OrderContextProvider } from "../Order/OrderContext";
 import { Button } from "react-bootstrap";
 import { GrCart } from "react-icons/gr";
 import { getAuth, signOut } from "firebase/auth";
+import { warnMessage, errorMessage } from "../Tostify/MessagesToastify";
 
 const Logout = async () => {
   const auth = getAuth();
@@ -22,7 +23,9 @@ const Logout = async () => {
     if (auth !== null) {
       await signOut(auth);
       console.log("El usuario cerró sesión");
-    } else {
+      warnMessage("Logout");
+    } else if (auth === null) {
+      errorMessage("unlogged user");
       console.log("No hay ningun usuario logiado");
     }
   } catch (error) {
