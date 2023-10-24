@@ -151,7 +151,6 @@ function Login() {
             Create one!
           </Link>
         </Form.Text>
-        <Account email={email} password={password} />
         <h3 style={{ color: "black" }}>{userType}</h3>
         <Button onClick={loginGoogle} variant="primary">
           Login with Google

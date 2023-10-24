@@ -9,15 +9,15 @@ function CardProduct({ props, index }) {
   const { name, winery, vintage, type, url, cost } = props;
   const { order, setOrder } = useContext(OrderContext);
   const [newProduct, setNewProduct] = useState({
-    orderName: name,
-    orderCost: cost,
-    orderImg: url,
-    orderId: index,
+    orderName: "",
+    orderCost: 0,
+    orderImg: "",
+    orderId: "",
   });
 
   // añadir un producto a la bariable global de pedido
   const addOrder = () => {
-    setOrder("Valor nuevo de order");
+    setOrder();
     console.log("Valores de order antes de apretar Add to Cart: ");
     console.log({ order });
   };
@@ -27,7 +27,9 @@ function CardProduct({ props, index }) {
       <Card className="card">
         <Card.Img className="card-img" variant="top" src={url} alt={name} />
         <Card.Body>
-          <Card.Title>{name}</Card.Title>
+          <Card.Title>
+            <b>{name}</b>
+          </Card.Title>
           <Card.Text className="card-text">
             <b>Winery: </b> {winery}
           </Card.Text>
@@ -41,7 +43,6 @@ function CardProduct({ props, index }) {
           <Card.Text className="card-text">
             <b>Cost:</b> ${cost}
           </Card.Text>
-          <Card.Text>Id: {index}</Card.Text>
           <Button className="animated-button" onClick={addOrder}>
             Add to cart
           </Button>

@@ -12,7 +12,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../Firebase/Firebase";
-import { errorMessage, succesedMessage } from "../Tostify/MessagesToastify";
+import {
+  errorMessage,
+  succesedMessage,
+  warnMessage,
+} from "../Tostify/MessagesToastify";
 
 function FormAddProducts() {
   const { userType } = useContext(UserContext);
@@ -62,9 +66,10 @@ function FormAddProducts() {
       newProduct.name === "" ||
       newProduct.winery === "" ||
       newProduct.vintage === 0 ||
-      newProduct.type === ""
+      newProduct.type === "" ||
+      newProduct.cost === 1
     ) {
-      errorMessage("Failed to add wine");
+      warnMessage("All entries must be complete");
     } else {
       setWines([...wines, newProduct]);
       succesedMessage("Wine added");
@@ -164,7 +169,6 @@ function FormAddProducts() {
             <Button
               className="add-wine"
               onClick={addWine}
-              type="submit"
               variant="info"
               id="add-button"
             >

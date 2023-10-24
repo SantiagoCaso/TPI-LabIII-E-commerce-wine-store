@@ -10,6 +10,13 @@ const CartContainer = () => {
     <div className={theme}>
       <p>Listado de Productos en el carrito de compras</p>
       <h1>{order}</h1>
+      {/* {order.map((props, index) => (
+        <ul key={index}>
+          <li>{props.orderName}</li>
+          <li></li>
+          <li></li>
+        </ul>
+      ))} */}
     </div>
   );
 };

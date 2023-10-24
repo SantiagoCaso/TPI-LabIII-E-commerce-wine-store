@@ -11,6 +11,7 @@ import {
 import { Button, ToastContainer } from "react-bootstrap";
 import "./Account.css";
 import { toast } from "react-toastify";
+import { errorMessage, succesedMessage } from "../Tostify/MessagesToastify";
 
 const Account = () => {
   const { theme } = useContext(ThemeContext);
@@ -20,12 +21,14 @@ const Account = () => {
   const auth = getAuth();
   const user = auth.currentUser;
 
+  //Cambiar el nombre de usuario
+
   const nameHandler = async () => {
     try {
       await updateProfile(user, {
         displayName: name,
       });
-      succesedMessage();
+      succesedMessage("Updated name");
       console.log("Nombre de usuario actualizado con éxito");
     } catch (error) {
       console.error("Error al actualizar el nombre de usuario:", error);
@@ -41,6 +44,7 @@ const Account = () => {
     }
   };
 
+  //Solicitar restablecer contraseña
   const passwordHandler = async () => {
     try {
       await sendPasswordResetEmail(user, user.email);
@@ -52,16 +56,6 @@ const Account = () => {
   };
 
   const handleShow = () => setInputData(inputData === "show" ? "hide" : "show");
-
-  const succesedMessage = () => {
-    toast.success("Updated name", {
-      position: "top-right", // Posición de la notificación
-      autoClose: 3000, // Duración en milisegundos antes de que se cierre automáticamente (opcional)
-      hideProgressBar: false, // Mostrar barra de progreso (opcional)
-      closeOnClick: true, // Cerrar la notificación al hacer clic (opcional)
-      pauseOnHover: true, // Pausar la notificación al pasar el mouse por encima (opcional)
-    });
-  };
 
   return (
     <>
