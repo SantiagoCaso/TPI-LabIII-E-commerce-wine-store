@@ -11,6 +11,7 @@ import { PiWineFill } from "react-icons/pi";
 import "./NavBar.css";
 import { useEffect, useState } from "react";
 import ButtonToggleTheme from "../Theme/ButtonToggleTheme";
+import { Button } from "react-bootstrap";
 
 const Logout = () => {
   localStorage.removeItem("loggedUser");
@@ -73,7 +74,9 @@ function ColorSchemesExample() {
             <Dropdown.Item onClick={Logout} as={Link} to="/WineStore">
               Logout <BiLogOut />
             </Dropdown.Item>
+           
           </DropdownButton>
+          <Button className="button-cart" as={Link} to="/CartPage"> Cart </Button>
           <CartOffCanvas />
           <ButtonToggleTheme />
         </Container>

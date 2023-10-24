@@ -15,6 +15,7 @@ import { CartContextProvider } from "./Components/Cart/CartContext";
 import Login from "./Components/Login/Login";
 import Footer from "./Components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
+import CartPage from "./Components/Cart2/CartPage";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Route path="/createAnAccount" element={<CreateAnAccount />} />
               <Route path="/login" element={<Login />} />
               <Route path="/contactUs" element={<ContactUs />} />
+              <Route path="/CartPage" element={<CartPage />} />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </CartContextProvider>

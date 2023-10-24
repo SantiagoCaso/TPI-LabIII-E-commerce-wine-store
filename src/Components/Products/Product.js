@@ -8,6 +8,7 @@ import { CartContext } from "../Cart/CartContext";
 function CardProduct({ props, index }) {
   const { name, winery, vintage, type, url, cost } = props;
   const { cartItem, setCartItem } = useContext(CartContext);
+
   return (
     <div>
       <Card className="card">
