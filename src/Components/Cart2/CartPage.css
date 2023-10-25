@@ -1,0 +1,39 @@
+  
+.card-info {
+    border: 2px solid black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    background-color: rgb(172, 129, 129);
+    margin: 5px auto;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 460px; 
+}
+
+.box-info {
+    margin-left: 750px;
+    
+}
+
+.botton-info {
+    margin-left: 150px;
+}
+
+.input {
+    border: none;   
+    border-radius: 6px;
+    margin-bottom: 10px;
+    display: flex; 
+    flex-direction: column; 
+}
+
+.botton-submit {
+    width: 100px;
+    margin-left: 3px;
+}
+
+.shopping-botton {
+    margin-top: 10px;
+    margin-left: 900px;
+    margin-bottom: 130px;
+}

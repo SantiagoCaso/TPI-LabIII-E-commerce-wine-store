@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const succesedMessage = (message) => {
   toast.success(message, {
-    position: "top-right", // Posición de la notificación
+    position: "top-left", // Posición de la notificación
     autoClose: 3000, // Duración en milisegundos antes de que se cierre automáticamente (opcional)
     hideProgressBar: false, // Mostrar barra de progreso (opcional)
     closeOnClick: true, // Cerrar la notificación al hacer clic (opcional)
@@ -12,7 +12,7 @@ const succesedMessage = (message) => {
 };
 const warnMessage = (message) => {
   toast.warn(message, {
-    position: "top-right", // Posición de la notificación
+    position: "top-left", // Posición de la notificación
     autoClose: 3000, // Duración en milisegundos antes de que se cierre automáticamente (opcional)
     hideProgressBar: false, // Mostrar barra de progreso (opcional)
     closeOnClick: true, // Cerrar la notificación al hacer clic (opcional)

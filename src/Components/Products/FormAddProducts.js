@@ -6,9 +6,7 @@ import productContext from "../Items-Container/productContext";
 import ProductFilter from "../Selects/ProductFilter";
 import ProductsList from "./ProductsList";
 import { WinesContext } from "./WinesContext";
-import { UserContext } from "../Login/userContext";
 import { OrderContext } from "../Order/OrderContext";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../Firebase/Firebase";
@@ -17,9 +15,9 @@ import {
   succesedMessage,
   warnMessage,
 } from "../Tostify/MessagesToastify";
+import { getAuth } from "@firebase/auth";
 
 function FormAddProducts() {
-  const { userType } = useContext(UserContext);
   const productCollection = collection(db, "products");
   const { wines, setWines } = useContext(WinesContext);
   const [newProduct, setNewProduct] = useState({
@@ -176,15 +174,16 @@ function FormAddProducts() {
             </Button>
           </div>
         </form>
-        {/*Esto debería ir en ProductContainer*/}
+      </div>
+      {/*Esto debería ir en ProductContainer*/}
+
+      <div className="user-div">
         <ProductFilter
           onSelectWine={handleInputChange}
           types={getWineType(wines)}
         />
       </div>
-      <div className="products-container">
-        <ProductsList getProductList={productCollection} />
-      </div>
+
       <h1>{order}</h1>
     </productContext.Provider>
   );

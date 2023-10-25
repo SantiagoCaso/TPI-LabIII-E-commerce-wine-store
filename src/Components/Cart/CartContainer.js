@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { OrderContext } from "../Order/OrderContext";
 import CartItem from "./CartItem";
 import { ThemeContext } from "../Theme/useContext";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CartContainer = () => {
   const { order } = useContext(OrderContext);
@@ -17,6 +19,9 @@ const CartContainer = () => {
           <li></li>
         </ul>
       ))} */}
+      <Button className="button-cart" as={Link} to="/CartPage">
+        Pay
+      </Button>
     </div>
   );
 };

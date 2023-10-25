@@ -64,6 +64,7 @@ function ColorSchemesExample() {
           <Button variant="primary" as={Link} to="/account" id="btn-account">
             <BiSolidUser />
           </Button>
+
           <ButtonToggleTheme />
         </Container>
       </Navbar>

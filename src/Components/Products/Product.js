@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./Products.css";
 import { useContext } from "react";
 import { OrderContext } from "../Order/OrderContext";
+import { CartContext } from "../Cart/CartContext";
 
 function CardProduct({ props, index }) {
   const { name, winery, vintage, type, url, cost } = props;
@@ -12,14 +13,21 @@ function CardProduct({ props, index }) {
     orderName: "",
     orderCost: 0,
     orderImg: "",
-    orderId: "",
   });
 
-  // añadir un producto a la bariable global de pedido
+  useEffect(() => {
+    // Actualiza newProduct cuando las props cambian
+    setNewProduct({
+      orderName: name,
+      orderCost: cost,
+      orderImg: url,
+    });
+  }, [name, cost, url]);
+
+  // añadir un producto a la variable global de pedido
   const addOrder = () => {
-    setOrder();
-    console.log("Valores de order antes de apretar Add to Cart: ");
-    console.log({ order });
+    console.log({ name });
+    console.log(newProduct);
   };
 
   return (

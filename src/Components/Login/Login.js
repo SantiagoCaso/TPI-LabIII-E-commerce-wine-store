@@ -14,7 +14,6 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { firebaseConfig } from "../Firebase/Firebase";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { ThemeContext } from "../Theme/useContext";
-import { UserContext } from "./userContext";
 import Account from "../Account/Account";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,7 +23,6 @@ function Login() {
   const inputRef = useRef(null); // Para que al caragar el componente haga foco sobre el primer input
   const navigate = useNavigate(); // Para que cambie de componente si el usuario ingreso con exito
   const [showPassword, setShowPassword] = useState(false);
-  const { userType, setUserType } = useContext(UserContext); // Para definir que tipo de usuario ingresó
 
   const { theme } = useContext(ThemeContext);
 
@@ -46,14 +44,12 @@ function Login() {
         respuesta.user.email === "cubo3x3.cubo2x2@gmail.com" ||
         respuesta.user.email === "moravallejos03@gmail.com"
       ) {
-        setUserType("Admin");
         console.log("Welcome Admin");
         localStorage.setItem("loggedUser", JSON.stringify(respuesta.user.uid));
         console.log(
           "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
         );
       } else {
-        setUserType("User");
         console.log("Welcome User");
         localStorage.setItem("loggedUser", JSON.stringify(respuesta.user.uid));
         console.log(
@@ -82,7 +78,6 @@ function Login() {
         user.email === "cubo3x3.cubo2x2@gmail.com" ||
         user.email === "moravallejos03@gmail.com"
       ) {
-        setUserType("Admin");
         console.log("Welcome Admin");
         localStorage.setItem("loggedUser", JSON.stringify(user.uid));
         console.log(
@@ -91,7 +86,6 @@ function Login() {
       } else if (user.uid === null) {
         errorMessage("Failed to login");
       } else {
-        setUserType("User");
         console.log("Welcome User");
         localStorage.setItem("loggedUser", JSON.stringify(user.uid));
         console.log(
@@ -151,7 +145,6 @@ function Login() {
             Create one!
           </Link>
         </Form.Text>
-        <h3 style={{ color: "black" }}>{userType}</h3>
         <Button onClick={loginGoogle} variant="primary">
           Login with Google
         </Button>

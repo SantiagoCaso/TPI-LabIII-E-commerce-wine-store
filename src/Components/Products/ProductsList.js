@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import CardProduct from "./Product";
-import { WinesContext } from "./WinesContext";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import { db } from "../Firebase/Firebase";
 import { collection, getDoc, getDocs } from "firebase/firestore";
-
+import { Spinner } from "react-bootstrap";
+import "./ProductContainer.css";
 const ProductsList = () => {
-  const { wines } = useContext(WinesContext);
   const [productsList, setProductsList] = useState([]);
   const productsCollection = collection(db, "products");
 
@@ -27,13 +26,17 @@ const ProductsList = () => {
   }, []);
 
   return (
-    <>
-      {productsList.map((props, index) => (
-        <>
-          <CardProduct key={index} props={props} />
-        </>
-      ))}
-    </>
+    <div className="products-container">
+      {productsList.length > 0 ? (
+        productsList.map((props, index) => (
+          <>
+            <CardProduct key={index} props={props} />
+          </>
+        ))
+      ) : (
+        <Spinner animation="border" />
+      )}
+    </div>
   );
 };
 
