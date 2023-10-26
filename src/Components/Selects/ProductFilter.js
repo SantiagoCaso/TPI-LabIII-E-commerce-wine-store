@@ -24,3 +24,12 @@ function ProductFilter({ filteredType }) {
 }
 
 export default ProductFilter;
+
+// //Esto debería estar en Products.js
+// function getWineType(wines) {
+//   const types = wines.map((type) => type.type);
+//   let uniqueTypes = types.filter(
+//     (type, index) => types.indexOf(type) === index
+//   );
+//   return uniqueTypes;
+// }

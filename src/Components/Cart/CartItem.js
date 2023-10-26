@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { OrderContext } from "../Order/OrderContext";
 
-const CartItem = (props) => {
-  const { orderName, orderCost, orderId } = props;
+const CartItem = ({ props, index }) => {
+  const { order } = useContext(OrderContext);
+  const { orderName, orderCost, orderImg } = props;
   return (
     <div>
       <p>Name: {orderName}</p>
       <p>Cost: {orderCost}</p>
-      <p>Id: {orderId}</p>
+      <p>Id: {orderImg}</p>
     </div>
   );
 };

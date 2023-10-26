@@ -12,15 +12,17 @@ const CartContainer = () => {
     <div className={theme}>
       <p>Listado de Productos en el carrito de compras</p>
       <h1>{order}</h1>
-      {order.length > 0 ? (
-        order.map((props, index) => (
-          <>
-            <CartItem key={index} props={props} />
-          </>
-        ))
-      ) : (
-        <Spinner animation="border" />
-      )}
+      <div className="order-items">
+        {order.length > 0 ? (
+          order.map((props, index) => (
+            <>
+              <CartItem key={index} props={props} />
+            </>
+          ))
+        ) : (
+          <Spinner animation="border" />
+        )}
+      </div>
 
       <Button className="button-cart" as={Link} to="/CartPage">
         Pay

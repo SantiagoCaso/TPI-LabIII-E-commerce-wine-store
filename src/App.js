@@ -16,7 +16,7 @@ import Footer from "./Components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import CartContainer from "./Components/Cart/CartContainer";
 import Account from "./Components/Account/Account";
-import CartPage from "./Components/Cart2/CartPage";
+import CartPage from "./Components/PayOrder/CartPage";
 
 function App() {
   return (

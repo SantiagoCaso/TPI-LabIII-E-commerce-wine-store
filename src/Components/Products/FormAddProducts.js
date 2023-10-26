@@ -29,8 +29,6 @@ function FormAddProducts() {
     cost: 1,
   });
 
-  const { order } = useContext(OrderContext);
-
   // Función para que tome el valor de los inputs
   // e significa event pero podría ser cualquier letra
   const handleInputChange = (e) => {
@@ -85,15 +83,6 @@ function FormAddProducts() {
       console.error("Error al agregar el vino: ", error);
     }
   };
-
-  //Esto debería estar en Products.js
-  function getWineType(wines) {
-    const types = wines.map((type) => type.type);
-    let uniqueTypes = types.filter(
-      (type, index) => types.indexOf(type) === index
-    );
-    return uniqueTypes;
-  }
 
   return (
     <productContext.Provider value={wines}>

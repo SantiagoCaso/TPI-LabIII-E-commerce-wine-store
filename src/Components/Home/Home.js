@@ -11,7 +11,7 @@ const Home = () => {
     <div className={theme}>
       <h1>We are wine {theme}</h1>
       {/* si no hay nadie logiado esto se rompe  */}
-      {user.email === true
+      {user && user.email === true
         ? user.email === "santiagoignaciocaso@gmail.com"
           ? "You are admin"
           : "You are user"

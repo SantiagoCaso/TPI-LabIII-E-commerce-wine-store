@@ -7,6 +7,7 @@ import { db } from "../Firebase/Firebase";
 import { collection, getDoc, getDocs } from "firebase/firestore";
 import { Spinner } from "react-bootstrap";
 import "./ProductContainer.css";
+
 const ProductsList = () => {
   const [productsList, setProductsList] = useState([]);
   const productsCollection = collection(db, "products");
@@ -60,6 +61,7 @@ const ProductsList = () => {
         ) : (
           <Spinner animation="border" />
         )}
+        <button onClick={() => console.log(productsList)}>Product list</button>
       </div>
     </div>
   );

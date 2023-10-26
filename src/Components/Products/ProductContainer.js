@@ -17,7 +17,7 @@ function ProductContainer() {
     <div className={theme}>
       <WinesContextProvider>
         <h1>ProductContainer</h1>
-        {user.email ? (
+        {user && user.email ? (
           user.email === "santiagoignaciocaso@gmail.com" ? (
             <div className="product-admin-container">
               <FormAddProducts />
