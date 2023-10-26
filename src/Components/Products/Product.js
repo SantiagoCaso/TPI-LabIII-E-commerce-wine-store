@@ -26,6 +26,8 @@ function CardProduct({ props, index }) {
 
   // añadir un producto a la variable global de pedido
   const addOrder = () => {
+    setOrder("nuevo valor");
+    console.log({ order });
     console.log({ name });
     console.log(newProduct);
   };

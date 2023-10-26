@@ -29,7 +29,7 @@ const ProductsList = () => {
 
   return (
     <div className="products-container">
-      <h3>Filter by wine type</h3>
+      <h3>Filter wine by type</h3>
       <div className="product-filter">
         <Form.Select
           size="lg"
