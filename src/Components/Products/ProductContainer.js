@@ -6,6 +6,7 @@ import { WinesContextProvider } from "./WinesContext";
 import { getAuth } from "firebase/auth";
 import ProductsList from "./ProductsList";
 import "./ProductContainer.css";
+import ProductFilter from "../Selects/ProductFilter";
 
 function ProductContainer() {
   const { theme } = useContext(ThemeContext);
@@ -18,18 +19,19 @@ function ProductContainer() {
         <h1>ProductContainer</h1>
         {user.email ? (
           user.email === "santiagoignaciocaso@gmail.com" ? (
-            <div>
-              {/* Sacar de FormAddProduct y añadir el filter */}
+            <div className="product-admin-container">
               <FormAddProducts />
               <ProductsList />
             </div>
           ) : (
-            // añadir el filter
-            <ProductsList />
+            <div className="product-user-container">
+              <ProductsList />
+            </div>
           )
         ) : (
-          // añadir el filter
-          <ProductsList />
+          <div className="product-user-container">
+            <ProductsList />
+          </div>
         )}
       </WinesContextProvider>
     </div>
@@ -37,5 +39,3 @@ function ProductContainer() {
 }
 
 export default ProductContainer;
-
-//condición1 ? resultado1 : (condición2 ? resultado2 : (condición3 ? resultado3 : resultadoPorDefecto))

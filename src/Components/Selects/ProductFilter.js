@@ -1,31 +1,23 @@
 import Form from "react-bootstrap/Form";
-import { React, useState } from "react";
+import { React, useContext, useEffect, useState } from "react";
 import ProductsList from "../Products/ProductsList";
+import { async } from "q";
 
-function ProductFilter({ onSelectWine, types }) {
-  const [wineTypeSelected, setWineTypeSelected] = useState("");
-  const [wines, setWines] = useState([]);
-
-  const wineTypeChangeHandler = (event) => {
-    setWineTypeSelected(event.target.value);
-    onSelectWine(event.target.value);
-  };
+function ProductFilter({ filteredType }) {
   return (
     <div>
-      <Form.Select
-        size="lg"
-        aria-label="filter by wine type"
-        value={wineTypeSelected}
-        onChange={wineTypeChangeHandler}
-      >
-        <option value={""} disabled>
-          Select Wine Type
-        </option>
-        {types.map((type, index) => (
-          <option key={index} value={type}>
-            {type}
-          </option>
-        ))}
+      <Form.Select size="lg" aria-label="filter by wine type">
+        <option>Wine Type</option>
+        <option value="">All</option>
+        <option value="Red Wine">Red Wine</option>
+        <option value="White Wine">White Wine</option>
+        <option value="Rosé Wine">Rosé Wine</option>
+        <option value="Sparkling Wine">Sparkling Wine</option>
+        <option value="Fortified Wine">Fortified Wine</option>
+        <option value="Dessert Wine">Dessert Wine</option>
+        <option value="Sweet Wine">Sweet Wine</option>
+        <option value="Fruit Wine">Fruit Wine</option>
+        <option value="Natural Wine">Natural/Orange Wine</option>
       </Form.Select>
     </div>
   );

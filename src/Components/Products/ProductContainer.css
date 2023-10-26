@@ -4,3 +4,10 @@
   flex-wrap: wrap;
   gap: 20px;
 }
+
+.product-list {
+  margin: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

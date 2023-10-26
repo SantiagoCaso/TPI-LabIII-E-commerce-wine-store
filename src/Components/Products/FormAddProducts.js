@@ -175,16 +175,6 @@ function FormAddProducts() {
           </div>
         </form>
       </div>
-      {/*Esto debería ir en ProductContainer*/}
-
-      <div className="user-div">
-        <ProductFilter
-          onSelectWine={handleInputChange}
-          types={getWineType(wines)}
-        />
-      </div>
-
-      <h1>{order}</h1>
     </productContext.Provider>
   );
 }
