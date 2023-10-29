@@ -25,3 +25,7 @@ body {
   margin: 0px 8px;
   padding: 6px 8px 6px 2px;
 }
+
+div {
+  border: var(--color-bg-secondary);
+}

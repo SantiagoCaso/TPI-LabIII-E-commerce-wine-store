@@ -11,11 +11,13 @@ const Home = () => {
     <div className={theme}>
       <h1>We are wine {theme}</h1>
       {/* si no hay nadie logiado esto se rompe  */}
-      {user && user.email === true
-        ? user.email === "santiagoignaciocaso@gmail.com"
+      {/* {user && user.email === true
+        ? user.email === "santiagoignaciocaso@gmail.com" ||
+          user.email === "javier@gmail.com"
           ? "You are admin"
           : "You are user"
-        : "You are guest"}
+        : "You are guest"} */}
+      <br />
     </div>
   );
 };

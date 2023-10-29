@@ -1,0 +1,28 @@
+.div-pay-order-dark {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 30px;
+  border: solid 3px white;
+  border-radius: 10px;
+  padding: 7px;
+  color: white;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.div-pay-order-light {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 30px;
+  border: solid 3px rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 7px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+#text-red {
+  color: #9e2a2b;
+  font-family: sans-serif;
+}

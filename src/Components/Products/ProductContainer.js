@@ -18,7 +18,8 @@ function ProductContainer() {
       <WinesContextProvider>
         <h1>ProductContainer</h1>
         {user && user.email ? (
-          user.email === "santiagoignaciocaso@gmail.com" ? (
+          user.email === "santiagoignaciocaso@gmail.com" ||
+          user.email === "javier@gmail.com" ? (
             <div className="product-admin-container">
               <FormAddProducts />
               <ProductsList />
