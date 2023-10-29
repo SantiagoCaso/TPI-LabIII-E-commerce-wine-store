@@ -13,6 +13,7 @@ function CardProduct({ props, index }) {
     orderName: "",
     orderCost: 0,
     orderImg: "",
+    orderId: 0,
   });
 
   useEffect(() => {
@@ -21,8 +22,9 @@ function CardProduct({ props, index }) {
       orderName: name,
       orderCost: cost,
       orderImg: url,
+      orderId: index,
     });
-  }, [name, cost, url]);
+  }, [name, cost, url, index]);
 
   // añadir un producto a la variable global de pedido
   const addOrder = () => {

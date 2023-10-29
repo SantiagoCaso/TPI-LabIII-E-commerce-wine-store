@@ -1,15 +1,25 @@
 import React, { useContext } from "react";
 import { OrderContext } from "../Order/OrderContext";
-
-const CartItem = ({ props, index }) => {
-  const { order } = useContext(OrderContext);
-  const { orderName, orderCost, orderImg } = props;
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import "./CartItem.css";
+const CartItem = ({ orderName, orderCost, orderImg, index }) => {
   return (
-    <div>
-      <p>Name: {orderName}</p>
-      <p>Cost: {orderCost}</p>
-      <p>Id: {orderImg}</p>
-    </div>
+    <Card style={{ width: "18rem" }}>
+      <Card.Img
+        className="item-img"
+        variant="top"
+        src={orderImg}
+        alt={orderName}
+      ></Card.Img>
+      <Card.Body>
+        <Card.Title>{orderName}</Card.Title>
+        <Card.Text>Unid Cost: {orderCost}</Card.Text>
+
+        <Button variant="primary">Go somewhere</Button>
+        <Button variant="danger">Delate from cart</Button>
+      </Card.Body>
+    </Card>
   );
 };
 

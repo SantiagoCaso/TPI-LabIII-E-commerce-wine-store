@@ -61,7 +61,6 @@ const ProductsList = () => {
         ) : (
           <Spinner animation="border" />
         )}
-        <button onClick={() => console.log(productsList)}>Product list</button>
       </div>
     </div>
   );

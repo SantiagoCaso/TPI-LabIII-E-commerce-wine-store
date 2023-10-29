@@ -41,26 +41,20 @@ function Login() {
     try {
       const respuesta = await signInWithPopup(auth, googleProvider);
       if (
-        respuesta.user.email === "cubo3x3.cubo2x2@gmail.com" ||
+        respuesta.user.email === "santiagoignaciocaso@gmail.com" ||
         respuesta.user.email === "moravallejos03@gmail.com"
       ) {
         console.log("Welcome Admin");
-        localStorage.setItem("loggedUser", JSON.stringify(respuesta.user.uid));
-        console.log(
-          "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
-        );
+        succesedMessage("Welcome Admin");
       } else {
-        console.log("Welcome User");
-        localStorage.setItem("loggedUser", JSON.stringify(respuesta.user.uid));
-        console.log(
-          "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
-        );
+        succesedMessage("Welcome User");
       }
-      succesedMessage("Succesed login!");
       navigate("/products");
     } catch (error) {
-      errorMessage("Failed to login");
       console.log(error);
+      if (error.code === "auth/invalid-login-credentials") {
+        errorMessage("Incorrect email or password");
+      }
     }
   }
 
@@ -71,30 +65,24 @@ function Login() {
 
   const handleSubmit = async (e) => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-      const user = userCredential.user;
-      console.log("Usuario logiado con EXITO " + user.email);
-      if (
-        user.email === "cubo3x3.cubo2x2@gmail.com" ||
-        user.email === "moravallejos03@gmail.com"
-      ) {
-        console.log("Welcome Admin");
-        localStorage.setItem("loggedUser", JSON.stringify(user.uid));
-        console.log(
-          "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
-        );
-      } else if (user.uid === null) {
-        errorMessage("Failed to login");
-      } else {
-        console.log("Welcome User");
-        localStorage.setItem("loggedUser", JSON.stringify(user.uid));
-        console.log(
-          "Id del usuario logiado actual: " + localStorage.getItem("loggedUser")
-        );
-      }
-      succesedMessage("Succesed login!");
-      navigate("/products");
-    });
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("Usuario logiado con EXITO " + user.email);
+        navigate("/products");
+        if (user && user.email === "javier@gmail.com") {
+          succesedMessage("Succesed login! Welcome Admin");
+        } else {
+          succesedMessage("Succesed login! Welcome User");
+        }
+        navigate("/products");
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.code === "auth/invalid-login-credentials") {
+          errorMessage("Incorrect email or password");
+        }
+      });
   };
 
   // Para que al caragar el componente haga foco sobre el primer input

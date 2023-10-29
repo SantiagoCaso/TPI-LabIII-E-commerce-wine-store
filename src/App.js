@@ -17,6 +17,7 @@ import { ToastContainer } from "react-toastify";
 import CartContainer from "./Components/Cart/CartContainer";
 import Account from "./Components/Account/Account";
 import CartPage from "./Components/PayOrder/CartPage";
+import CartItem from "./Components/Cart/CartItem";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="*" element={<PageNotFound />} />
             <Route path="/cart" element={<CartContainer />} />
             <Route path="/account" element={<Account />} />
+            <Route path="" element={<CartItem />} />
           </Routes>
         </OrderContextProvider>
       </ThemeContextProvider>
