@@ -17,10 +17,15 @@ import { ThemeContext } from "../Theme/useContext";
 import Account from "../Account/Account";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { errorMessage, succesedMessage } from "../Tostify/MessagesToastify";
+import {
+  errorMessage,
+  succesedMessage,
+  warnMessage,
+} from "../Tostify/MessagesToastify";
 
 function Login() {
-  const inputRef = useRef(null); // Para que al caragar el componente haga foco sobre el primer input
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
   const navigate = useNavigate(); // Para que cambie de componente si el usuario ingreso con exito
   const [showPassword, setShowPassword] = useState(false);
 
@@ -65,29 +70,49 @@ function Login() {
 
   const handleSubmit = async (e) => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log("Usuario logiado con EXITO " + user.email);
-        navigate("/products");
-        if (user && user.email === "javier@gmail.com") {
-          succesedMessage("Succesed login! Welcome Admin");
-        } else {
-          succesedMessage("Succesed login! Welcome User");
-        }
-        navigate("/products");
-      })
-      .catch((error) => {
-        console.log(error);
-        if (error.code === "auth/invalid-login-credentials") {
-          errorMessage("Incorrect email or password");
-        }
-      });
+    if (emailRef.current.value.length === 0) {
+      emailRef.current.focus();
+      emailRef.current.style.border = "solid red";
+      emailRef.current.style.outline = "none";
+      warnMessage("Set a email");
+    } else if (
+      passwordRef.current.value.length > 0 &&
+      passwordRef.current.value.length < 5
+    ) {
+      passwordRef.current.focus();
+      passwordRef.current.style.border = "solid red";
+      passwordRef.current.style.outline = "none";
+      warnMessage("Password should be at least 6 characters");
+    } else if (passwordRef.current.value.length === 0) {
+      passwordRef.current.focus();
+      passwordRef.current.style.border = "solid red";
+      passwordRef.current.style.outline = "none";
+      warnMessage("Set a password");
+    } else {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("Usuario logiado con EXITO " + user.email);
+          navigate("/products");
+          if (user && user.email === "javier@gmail.com") {
+            succesedMessage("Succesed login! Welcome Admin");
+          } else {
+            succesedMessage("Succesed login! Welcome User");
+          }
+          navigate("/products");
+        })
+        .catch((error) => {
+          console.log(error);
+          if (error.code === "auth/invalid-login-credentials") {
+            errorMessage("Incorrect email or password");
+          }
+        });
+    }
   };
 
   // Para que al caragar el componente haga foco sobre el primer input
   useEffect(() => {
-    inputRef.current.focus();
+    emailRef.current.focus();
   }, []);
 
   return (
@@ -98,7 +123,7 @@ function Login() {
           <Form.Control
             type="email"
             placeholder="Enter your email"
-            ref={inputRef}
+            ref={emailRef}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -109,6 +134,7 @@ function Login() {
             <Form.Control
               type={showPassword ? "text" : "password"}
               placeholder="Enter Password"
+              ref={passwordRef}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

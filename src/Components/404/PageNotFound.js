@@ -10,7 +10,7 @@ function PageNotFound() {
     <div className={theme}>
       <h1>404</h1>
       <h2>You drank too much wine</h2>
-      <p>Pepito test passed</p>
+      <div>Pepito test passed</div>
       <div id="conteiner-404-img">
         <img src={DrunkMen} alt="drunk-men" id="drunk-men"></img>
       </div>
