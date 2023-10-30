@@ -53,7 +53,7 @@ const CartContainer = () => {
           <div>
             <h3>You have not selected any product yet</h3>
             <p onClick={() => navigate("/products")} className="text">
-              Click here to go to <samp id="text-red">products section</samp>{" "}
+              Click here to go to <samp id="text-red">products section</samp>
               and choose your wines
             </p>
           </div>

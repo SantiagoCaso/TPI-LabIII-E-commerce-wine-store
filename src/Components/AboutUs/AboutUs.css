@@ -8,3 +8,8 @@
 .img-carousel {
   height: 500px;
 }
+
+#text-red {
+  color: #9e2a2b;
+  font-family: sans-serif;
+}
