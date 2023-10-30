@@ -4,7 +4,7 @@ import "./PageNotFound.css";
 import { ThemeContext } from "../Theme/useContext";
 
 function PageNotFound() {
-  const {theme} = useContext=(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <div className={theme}>
