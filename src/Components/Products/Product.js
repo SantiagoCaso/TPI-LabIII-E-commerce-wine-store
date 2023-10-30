@@ -4,12 +4,9 @@ import Card from "react-bootstrap/Card";
 import "./Products.css";
 import { useContext } from "react";
 import { OrderContext } from "../Order/OrderContext";
-import { CartContext } from "../Cart/CartContext";
 import { getAuth } from "firebase/auth";
 import { succesedMessage, warnMessage } from "../Tostify/MessagesToastify";
 import { useNavigate } from "react-router-dom";
-import { db } from "../Firebase/Firebase";
-import { collection } from "firebase/firestore";
 
 function CardProduct({ props, index }) {
   const { name, winery, vintage, type, url, cost } = props;
@@ -51,14 +48,6 @@ function CardProduct({ props, index }) {
   //funcion para que el admin elimine un producto de la collecion de firebase
   const delateProdcut = async () => {
     console.log("Borrando producto");
-
-    // const productRef = db.collection("products").doc(productId);
-    // try {
-    //   await productRef.delete();
-    //   console.log("Producto borrado exitosamente");
-    // } catch (error) {
-    //   console.error("Error al borrar el producto:", error);
-    // }
   };
 
   return (

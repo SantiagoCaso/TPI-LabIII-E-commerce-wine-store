@@ -6,7 +6,6 @@ import { WinesContextProvider } from "./WinesContext";
 import { getAuth } from "firebase/auth";
 import ProductsList from "./ProductsList";
 import "./ProductContainer.css";
-import ProductFilter from "../Selects/ProductFilter";
 
 function ProductContainer() {
   const { theme } = useContext(ThemeContext);
@@ -16,7 +15,7 @@ function ProductContainer() {
   return (
     <div className={theme}>
       <WinesContextProvider>
-        <h1>ProductContainer</h1>
+        <h1>Products</h1>
         {user && user.email ? (
           user.email === "santiagoignaciocaso@gmail.com" ||
           user.email === "javier@gmail.com" ? (

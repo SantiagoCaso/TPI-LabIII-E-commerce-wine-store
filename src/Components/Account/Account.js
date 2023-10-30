@@ -1,22 +1,14 @@
 import React, { useState, useContext } from "react";
 import { ThemeContext } from "../Theme/useContext";
 import firebase from "firebase/app";
-import {
-  getAuth,
-  sendEmailVerification,
-  sendPasswordResetEmail,
-  updateEmail,
-  updateProfile,
-} from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
 import { Button, ToastContainer } from "react-bootstrap";
 import "./Account.css";
-import { toast } from "react-toastify";
 import { errorMessage, succesedMessage } from "../Tostify/MessagesToastify";
 
 const Account = () => {
   const { theme } = useContext(ThemeContext);
   const [name, setName] = useState("");
-  const [newEmail, setEmail] = useState("");
   const [inputData, setInputData] = useState("hide");
   const auth = getAuth();
   const user = auth.currentUser;
@@ -35,33 +27,13 @@ const Account = () => {
     }
   };
 
-  const emailHandler = async () => {
-    try {
-      await sendEmailVerification(user);
-      console.log("new email: " + user.email);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  //Solicitar restablecer contraseña
-  const passwordHandler = async () => {
-    try {
-      await sendPasswordResetEmail(user, user.email);
-      console.log("Correo de restablecimiento de contraseña enviado");
-    } catch (error) {
-      console.log(error);
-      console.log("No se pudo enviar el mail");
-    }
-  };
-
   const handleShow = () => setInputData(inputData === "show" ? "hide" : "show");
 
   return (
     <>
       {user ? (
         <div className={theme}>
-          <h1>User Data</h1>
+          <h1>Your account data</h1>
           <div id="user-name">
             <h3>Name: {user.displayName === null ? name : user.displayName}</h3>
             {user.displayName === null ? (
@@ -92,20 +64,18 @@ const Account = () => {
             <h3>Email: {user.email}</h3>
           </div>
           <div className="div-user-flex">
-            <h3>Id:</h3> <p>{user.uid}</p>
+            <h3>Id:</h3> {user.uid}
           </div>
           <div id="user-password">
             <h3>Password: ********</h3>
-            <div className={inputData + "-set-new-data"}>
-              <p>Solicitar restablecer contraseña</p>
-              <Button onClick={passwordHandler}>New Password</Button>
-            </div>
           </div>
           <Button onClick={handleShow}>Change user data</Button>
           <br></br>
         </div>
       ) : (
-        <h2>You are not registered</h2>
+        <div>
+          <h2>You are not registered</h2>
+        </div>
       )}
     </>
   );

@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useMemo } from "react";
 import { OrderContext } from "../Order/OrderContext";
 import CartItem from "./CartItem";
 import { ThemeContext } from "../Theme/useContext";
-import { Button, Spinner } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./CartContainer.css";
 import { warnMessage } from "../Tostify/MessagesToastify";

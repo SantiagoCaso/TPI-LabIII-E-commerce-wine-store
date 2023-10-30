@@ -29,7 +29,6 @@ function App() {
           <ColorSchemesExample />
           <Routes>
             <Route path="/" exact element={<AboutUs />} />
-            <Route path="/WineStore" element={<AboutUs />} />
             <Route path="/home" element={<Home />} />
             <Route path="/products" element={<ProductContainer />} />
             <Route path="/createAnAccount" element={<CreateAnAccount />} />

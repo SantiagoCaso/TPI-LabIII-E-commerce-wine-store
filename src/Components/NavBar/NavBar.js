@@ -36,7 +36,7 @@ function ColorSchemesExample() {
     <>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="/WineStore">
+          <Navbar.Brand href="/">
             WineStore <PiWineFill color="" />
           </Navbar.Brand>
           <Nav className="me-auto">
@@ -54,7 +54,7 @@ function ColorSchemesExample() {
             <Dropdown.Item as={Link} to="/createAnAccount">
               Create an account <BsFillPersonFill />
             </Dropdown.Item>
-            <Dropdown.Item onClick={Logout} as={Link} to="/WineStore">
+            <Dropdown.Item onClick={Logout} as={Link} to="/">
               Logout <BiLogOut />
             </Dropdown.Item>
           </DropdownButton>
