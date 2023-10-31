@@ -1,9 +1,18 @@
 import Form from "react-bootstrap/Form";
 import { React, useContext, useEffect, useState } from "react";
-import ProductsList from "../Products/ProductsList";
-import { async } from "q";
+import { useParams } from "react-router-dom";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
-function ProductFilter({ filteredType }) {
+function ProductFilter(productList) {
+  const [data, setData] = useState([]);
+  const [wineType, setWineType] = useState();
+
   return (
     <div>
       <Form.Select size="lg" aria-label="filter by wine type">

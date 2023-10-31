@@ -95,6 +95,7 @@ function Login() {
           console.log("Usuario logiado con EXITO " + user.email);
           navigate("/products");
           if (user && user.email === "javier@gmail.com") {
+            // password: javi123
             succesedMessage("Succesed login! Welcome Admin");
           } else {
             succesedMessage("Succesed login! Welcome User");
