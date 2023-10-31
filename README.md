@@ -5,3 +5,10 @@ Un user y admin deben iniciar sesion para poder desarrolar sus actividades.
 Usuario admin: 
 email: javier@gmail.com 
 password: javi123
+
+Usamos varios hooks: 
+useState en muchos casos 
+useContext para crear el toggle theme dark and light y para crear una orden de compra que se ve en la parte de Cart.
+useMemo para la función que calcula el total de la orden que el usuario armó. 
+useCallback para borrar todos los productos seleccionados del carrito de compras. 
+
