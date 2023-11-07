@@ -72,7 +72,8 @@ function CardProduct({ props, index }) {
             <b>Cost:</b> ${cost}
           </Card.Text>
           {user && user.email ? (
-            user.email === "santiagoignaciocaso@gmail.com" ? (
+            user.email === "santiagoignaciocaso@gmail.com" ||
+            user.email === "javier@gmail.com" ? (
               <div className="product-admin-container">
                 <Button
                   className="animated-button"
